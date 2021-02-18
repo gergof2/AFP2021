@@ -1,4 +1,5 @@
 # AFP2021
+
 ## Database
 - User
   - userid(primary key)
@@ -19,7 +20,9 @@
   - text
   - files
   - timedate
+  
 ## Requests
+
 - GET /api/login
   - params:
     - username/email
@@ -31,24 +34,30 @@
     - to
   - response: {messages: {id, userid, text, files, timedate}}
   - Example: from: 1(Newest Message/File), to: 5
-- POST /api//REGISTER
+- POST /api/REGISTER
   - params
     - username
     - email
     - password
   - response: {true/false}
-- POST /api//STATUSCHANGE
+- POST /api/STATUSCHANGE
   - params:
     - userid
     - statusid
   - response: {}
-- POST /api//SENDMESSAGE
+- POST /api/SENDMESSAGE
   - params:
     - userid
     - text
   - response: {true/false}
-- POST /api//SENDFILE
+- POST /api/SENDFILE
   - params:
     - userid
     - files
-  - response: {true/false}
+  - response: {true/false} 
+    
+|Method| Path | Params| Response |
+|------|------|-------|----------|
+|PUT   |/api/update |messageId: int, text: string| success: bool|
+|DELETE|/api/delete |messageId: int| success: bool|
+|
