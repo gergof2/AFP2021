@@ -20,34 +20,34 @@
   - files
   - timedate
 ## Requests
-- GET/LOGIN
+- GET /api/login
   - params:
     - username/email
     - password
   - response: {user: {userid, username, password, email, registerdate, statusid}}
-- GET/MESSAGES
+- GET /api/MESSAGES
   - params:
     - from
     - to
   - response: {messages: {id, userid, text, files, timedate}}
   - Example: from: 1(Newest Message/File), to: 5
-- POST/REGISTER
+- POST /api//REGISTER
   - params
     - username
     - email
     - password
   - response: {true/false}
-- POST/STATUSCHANGE
+- POST /api//STATUSCHANGE
   - params:
     - userid
     - statusid
   - response: {}
-- POST/SENDMESSAGE
+- POST /api//SENDMESSAGE
   - params:
     - userid
     - text
   - response: {true/false}
-- POST/SENDFILE
+- POST /api//SENDFILE
   - params:
     - userid
     - files
