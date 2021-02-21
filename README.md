@@ -23,41 +23,13 @@
   
 ## Requests
 
-- GET /api/login
-  - params:
-    - username/email
-    - password
-  - response: {user: {userid, username, password, email, registerdate, statusid}}
-- GET /api/MESSAGES
-  - params:
-    - from
-    - to
-  - response: {messages: {id, userid, text, files, timedate}}
-  - Example: from: 1(Newest Message/File), to: 5
-- POST /api/REGISTER
-  - params
-    - username
-    - email
-    - password
-  - response: {true/false}
-- POST /api/STATUSCHANGE
-  - params:
-    - userid
-    - statusid
-  - response: {}
-- POST /api/SENDMESSAGE
-  - params:
-    - userid
-    - text
-  - response: {true/false}
-- POST /api/SENDFILE
-  - params:
-    - userid
-    - files
-  - response: {true/false} 
-    
 |Method| Path | Params| Response |
 |------|------|-------|----------|
-|PUT   |/api/update |messageId: int, text: string| success: bool|
+|GET|/api/login |username/email, password|user: userid: int, username: string, password: string, email: string, registerdate: date, statusid: int|
+|GET|/api/messages |from: int,to: int|messages: id: int, userid: int, text: string, files: string, timedate: date|
+|POST|/api/register |username: string, password: string, email: string| success: bool|
+|POST|/api/statuschange |userid: int, statusid: int|-|
+|POST|/api/sendmessage |userid: int, text: string| success: bool|
+|POST|/api/sendfile |userid: int, files: string| success: bool|
+|PUT|/api/update |messageId: int, text: string| success: bool|
 |DELETE|/api/delete |messageId: int| success: bool|
-|
