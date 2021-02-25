@@ -7,3 +7,18 @@ Az első online rendszer, amely igazi "chat" parancsokat használt, a "The Sourc
 Egyéb chat platformok is virágoztak az 1980-as években. Ezek közül a legkorábbi, ami GUI-val rendelkeztek, a Broadcast, amely egy Macintosh bővítmény volt. Különösen népszerűvé vált az amerikai és német egyetemi campusokon.
 
 A mi rendszerünk célja valamelyféle innováció hozzáadása ahhoz, amit 1973-ban kezdtek el és mai napig fejlődött. Mindeközben a szolgáltatásunk stabilitása prioritást élvez. A felhasználó chat résztvevőn képes lesz majd valamikor egyértelmű kezelőfelületen az adott chat szobán keresztül akadálymentesen tud a többi résztvevővel kommunikálni.
+
+## Projekt terv
+#### __Projektszerepkörök, felelősségek:__  
+        project manager: Horváth Dániel
+        server & database development felelős: Kerepesi Gergő
+        web development felelős: Szalóki Dávid
+        client development felelős: Seres Péter
+#### __Ütemterv:__
+|Funkció/Story|Feladat/Task|Prioritás|Becslés|Aktuális Becslés|Eltelt Idő|Hátralévő idő|
+|-------------|------------|---------|-------|----------------|----------|-------------|
+|Követelmény Specifikáció| | 1 | 2 hét | 2 hét | 1 hét | 1 hét |
+|Funkcionális Specifikáció| | 1 | 2 hét | 2 hét | 1 hét | 1 hét |
+|Rendszerterv| | 1 | 2 hét | 2 hét | 1 hét | 1 hét |
+|Adattárolás| | 2 | 2 hét | 2 hét | 0 | 2 hét |
+|Szerverfüggvények| | 2 | 2 hét | 2 hét | 0 hét | 2 hét |
