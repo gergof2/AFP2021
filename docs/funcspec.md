@@ -32,6 +32,7 @@ Ezért készül a mi szoftverünk hogy ezen igényeknek eleget tegyen.
 |Felület| K_8.1 | Üzenet küldés | A felhasználók közösen egy csetablakban küldhetnek üzeneteket egy közös üzenőfalra |
 |Felület| K_8.2 | Hagüzenet küldése | A felhasználók hangüzeneteket is küldhetnek egymásnak |
 |Felület| K_8.3 | Üzenetek Naplózása | A felhasználók üzeneteinél megjelenik mikor küldték |
+|Felület| K_9 | hangulatjelek | A felhasználók bizonyos betűkombinációval hangulatjeleket küldhetnek ( smile )
 
 ## Jelenlegi üzleti folyamatok modellje
 
@@ -62,9 +63,17 @@ képeken keresztül üzenetekkel vagy hangokall. Minnél többet beszélnek egym
 
 ## Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
 
-
+- Beszélgetés >> K_8.1 (Üzenet küldés)
+- Szórakozás >>  K_9 (smile)
+- Kapcsolattartás >> K_3 (állapotjelző)
+- Élmény >> All (Az alkalmazás használata)
                                                
-                                 
+## Képernyő tervek
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
+
+                               
                                   
                                   
                                   
