@@ -71,6 +71,7 @@ képeken keresztül üzenetekkel vagy hangokall. Minnél többet beszélnek egym
 ## Képernyő tervek
 
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/AFP_pictue_plan.jpg)
 
 
                                
