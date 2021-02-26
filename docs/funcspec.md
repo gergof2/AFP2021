@@ -32,7 +32,7 @@ Ezért készül a mi szoftverünk hogy ezen igényeknek eleget tegyen.
 |Felület| K_8.1 | Üzenet küldés | A felhasználók közösen egy csetablakban küldhetnek üzeneteket egy közös üzenőfalra |
 |Felület| K_8.2 | Hagüzenet küldése | A felhasználók hangüzeneteket is küldhetnek egymásnak |
 |Felület| K_8.3 | Üzenetek Naplózása | A felhasználók üzeneteinél megjelenik mikor küldték |
-|Felület| K_9 | hangulatjelek | A felhasználók bizonyos betűkombinációval hangulatjeleket küldhetnek ( smile )
+|Extra fungcio| K_9 | hangulatjelek | A felhasználók bizonyos betűkombinációval hangulatjeleket küldhetnek ( smile )
 
 ## Jelenlegi üzleti folyamatok modellje
 
@@ -70,10 +70,44 @@ képeken keresztül üzenetekkel vagy hangokall. Minnél többet beszélnek egym
                                                
 ## Képernyő tervek
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/AFP_pictue_plan.jpg)
 
+## Forgatóköny
 
+- A felhasználónak elösször be kell lépnie a program használatához.
+
+- Amennyiben még nem regisztrált az oldalra ezt megteheti egy regisztációs fülön keresztül
+itt elkérünk tölle egy e mail címet és/vagy felhasználónevet meg egy jelszót. A továbbiakban
+ezzel a párossal tud belépni  afelhasználó
+
+- Miután a felhasználó belépett a login oldalról átírányítjuk a "cset" oldalra ahol a közösen
+belépett felhasználókkal tud kommunikálni.
+
+- Minden uzenetküldésnél a send gombra kell kattintani , és az alkalmazás folyamatosan a legutolsó
+üzenetre ugrik le  (auto scroll) 
+
+- Az üzeneteket minden közös BELÉPETT felhasználó láthatja (aki a gép előtt tartózkodik XD) 
+
+- Bizonyos eltelt idő után ha a felhasználó nem nyúl a programba az állapota elérhetőböl átvált ellősször
+afk állaporta majd később offline állapotba , mikor az utóbbi megtörténik akkor a program autómatikusan
+kijelentkezteti a felhasználót
+
+- Saját magának is tudja változtatni a státuszát már amennyiben szeretné
+
+- A rendszer autómatikusan oszt rangokat bizonyos mennyiségű üzenet elküldése után pl: kezdö haladó veterán
+
+## Fogalom szótár 
+
+- Afk állaot : egy olyan állapot amikor az illető nem tartózkodik a gép előtt , vagy tétlen esetleg nem nyűl hozzá
+(away from keyboard)
+
+- Smile : hangulatjel ( a kis sárga mosolygós fejecske XD )
+
+- felület : amit a felhasználó láthat
+
+- modifikáció : változtatás ( a programban megváltozik valami)
+
+- dobozos szoftver : nem megrendelő álltal kért termék , nagy közönségnek készűlt
                                
                                   
                                   
