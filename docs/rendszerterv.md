@@ -22,3 +22,6 @@ A mi rendszerünk célja valamelyféle innováció hozzáadása ahhoz, amit 1973
 |Rendszerterv| | 1 | 2 hét | 2 hét | 1 hét | 1 hét |
 |Adattárolás| | 2 | 2 hét | 2 hét | 0 | 2 hét |
 |Szerverfüggvények| | 2 | 2 hét | 2 hét | 0 hét | 2 hét |
+
+## Üzleti folyamatok modelje
+![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/BusinessModel.png)
