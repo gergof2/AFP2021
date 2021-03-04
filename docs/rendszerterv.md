@@ -66,8 +66,32 @@ A mi rendszerünk célja valamelyféle innováció hozzáadása ahhoz, amit 1973
   - Felhasználó hozzáadására, törlésére van lehetőségük
   - Üzenet írása
   - Üzenet szerkesztése
-  - Üzenet cenzúrázása
   - Felhasználói adatok módosítása
-  - Üzenetek törlése
-  - Felhasználók ideiglenes némítása
-  - Felhasználók ideiglenes vagy végleges tiltása a szolgáltatásból
+  - Saját üzenetek törlése
+
+### Menü-hierarchiák
+  - #### Bejelentkezés:
+    - Bejelentkezés
+    - Regisztráció
+    - Elfelejtett jelszó
+    - Elfelejtett felhasználónév
+    - Help
+  - #### Főmenü
+    - Üzenet lista
+    - Üzenet szövegdoboz
+    - Felhasználói lista
+    - Preferenciák
+    - Státuszbeállítás
+
+### Fizikai környezet
+Az alkalmazás webes felületen és Win10 klienre készül.
+Szerverkonponensek listája:
+  - 2x AMD EPYC 7702
+  - 124Gb GDDR4
+  - 10 x 4096Gb WD HDD
+Fejlesztői eszközök:
+  - IntelliJ Idea Community
+  - Visual Studio Community
+  - Xampp Server
+  - Sublime Text
+  - Visual Studio Code
