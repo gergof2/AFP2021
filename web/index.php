@@ -1,7 +1,11 @@
-/* route kezelés
+<?php
 
-ha semmi localhost/*
-    -> main page
+session_start();
 
-ha valami... localhost/api/login
-       -> backend
+// require core
+require_once 'application/core/config.php';
+require_once 'application/core/app.php';
+require_once 'application/core/controller.php';
+require_once 'application/core/model.php';
+
+$app = new App;
