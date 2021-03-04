@@ -31,7 +31,7 @@ A beinportálandó fájl neve: afp2021_Database.
 
 1. A user tábla:
    
-   ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/user.png
+   ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/user.png)
 
    - userid: a felhasználóhoz tartozó azonosító
    - username: felhasználónév
@@ -42,7 +42,7 @@ A beinportálandó fájl neve: afp2021_Database.
 
 2. userlogin tábla:
    
-   ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/userlogin.png
+   ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/userlogin.png)
 
    - id: egy adott belépés sorszáma
    - userid: a user táblával összekötött azonosító
@@ -52,7 +52,7 @@ A beinportálandó fájl neve: afp2021_Database.
 
 3. messages tábla:
 
-    ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/messages
+    ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/messages)
 
     - id: egy adott üzenet sorszáma
     - userid: a user táblával összekötött azonosító
