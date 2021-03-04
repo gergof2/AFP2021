@@ -52,7 +52,7 @@ A beinportálandó fájl neve: afp2021_Database.
 
 3. messages tábla:
 
-    ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/messages)
+    ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/messages.png)
 
     - id: egy adott üzenet sorszáma
     - userid: a user táblával összekötött azonosító
