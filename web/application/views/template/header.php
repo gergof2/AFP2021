@@ -7,15 +7,39 @@
     <title><?=SITE_NAME?></title>
 
     <!-- Bootstrap, fontawesome, CSS -->
-    <link rel="stylesheet" href="<?=URL?>/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--  <link rel="stylesheet" href="<?=URL?>/assets/vendor/bootstrap/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="<?=URL?>/assets/vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?=URL?>/assets/css/style.css">
 </head>
 <body>
-
 <header>
-    <nav class="bg-primary">
-        nav bar
-        <i class="fas fa-arrow-left"></i>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #CAD5E2";>
+
+      <div class="container-fluid">
+
+        <a class="navbar-brand mb-0 h1" style="color: #6A1B4D">Timber</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" style="color: #6A1B4D">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="color: #6A1B4D">Registration</a>
+            </li>
+                        <li class="nav-item">
+              <a class="nav-link" href="#" style="color: #6A1B4D">Login</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit" style="color: #6A1B4D">Search</button>
+          </form>
+        </div>
+      </div>
     </nav>
 </header>
