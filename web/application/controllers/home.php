@@ -10,6 +10,10 @@ class Home extends Controller {
         $this->model = $this->load_model('home_model');
     }
 
+    public function login($username, $password){
+        $this->model = $this->login();
+    }
+
     # http://localhost/
     public function index()
     {

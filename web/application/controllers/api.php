@@ -24,5 +24,29 @@ class Api extends Controller {
     {
         $this->model = $this->delete();
     }
+
+    public function login($username = "admin", $password = "admin"){
+        parent::__construct();
+        $this->model =$this->load_model('api_model');
+        $user = $this->model->getLogin();
+        var_dump($user);
+        $this->load_view('home/index', $user);
+    }
+
+    public function register(){
+
+    }
+
+    public function sendmessages(){
+
+    }
+
+    public function sendfile(){
+
+    }
+
+    public function statuschange(){
+        
+    }
 }
 
