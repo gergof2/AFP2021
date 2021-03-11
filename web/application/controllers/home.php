@@ -18,4 +18,7 @@ class Home extends Controller {
 
         $this->load_view('home/index', $data);
     }
+    public function login(){
+        $this->load_view('home/login');
+    }
 }

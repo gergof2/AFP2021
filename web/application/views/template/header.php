@@ -6,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?=SITE_NAME?></title>
 
-    <!-- Bootstrap, fontawesome, CSS -->
-    <!--  <link rel="stylesheet" href="<?=URL?>/assets/vendor/bootstrap/css/bootstrap.min.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?=URL?>/assets/vendor/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="<?=URL?>/assets/css/style.css">
+    <!-- Bootstrap, fontawesome, CSS -->   
+    <!-- Old LINK:-->
+    <!-- <link rel="stylesheet" href="<?=URL?>/assets/vendor/bootstrap/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- URL LINK : <?=URL?>/assets/css/style.css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+    <!-- URL LINK : <?=URL?>/assets/vendor/fontawesome/css/all.min.css -->
+    
 </head>
-<body>
+<body style="background-color: #D5E1F0";>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #CAD5E2";>
 
@@ -26,13 +30,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" style="color: #6A1B4D">Home</a>
+              <a class="nav-link active" aria-current="page" href="index" style="color: #6A1B4D">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" style="color: #6A1B4D">Registration</a>
+              <a class="nav-link" href="/registration" style="color: #6A1B4D">Registration</a>
             </li>
                         <li class="nav-item">
-              <a class="nav-link" href="#" style="color: #6A1B4D">Login</a>
+              <a class="nav-link" href="/login" style="color: #6A1B4D">Login</a>
             </li>
           </ul>
           <form class="d-flex">
