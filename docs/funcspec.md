@@ -9,7 +9,10 @@ kiszorulni a kis hazai piacról. Ezért szüksége van az embereknek valami olya
 Ezt hivatott megvalósítani a mi szoftverünk.
 Adatvédelmi szempontokból megfelel az uniós elvárásoknak, ingyenes és magyar.
 
-## jelenlegi helyzet
+- A rendszernek nem célja hogy az embereket megfigyelés alatt tartsa, és magát az üzeneteket
+tárolva információkkal szolgálja ki a nagyobb cégóriásokat!
+
+## Jelenlegi helyzet
 
 - Mivel a magyar állam törvényeiben egyre jobban teret nyer az informatika szabályozása,
 ezért a nagy vállalatok vagy alkalmazkodnak ehhez a lépéshez, vagy kivonulnak a piacról.
@@ -18,7 +21,7 @@ szabályaihoz, így inkább elhagyják a piacot. Ennek hatására hazánkban nin
 biztosítsa az emberek számára az online térben való üzenetküldési lehetőséget.
 Ezért készül a mi szoftverünk hogy ezen igényeknek eleget tegyen.
 
-## követelménylista
+## Követelménylista
 
 |Module| ID | Név| Kifejezés|
 |------| ---- |--- | ---      |
@@ -39,52 +42,70 @@ Ezért készül a mi szoftverünk hogy ezen igényeknek eleget tegyen.
 - A mai világban már mindenki ismeri a Messenger fogalmát, rengeteg üzenetküldő rendszer létezik 
 ezek közül kerül ki a mi rendszerünk a "Timber" .
 
-- A legelső chat rendszert Talkomatic-nak nevezték, amit Doug Brown és David Wooley hozott létre, a PLATO (Programmed Logic for Automatic Teaching Operations)
- rendszeren, az Illinois-i egyetemen, 1973-ban. Számos csatornát ajánlott fel, amelyekre legfeljebb öt ember csatlakozhatott. 
+- A legelső chat rendszert Talkomatic-nak nevezték, amit Doug Brown és David Wooley hozott létre,
+a PLATO (Programmed Logic for Automatic Teaching Operations) rendszeren, az Illinois-i egyetemen,
+1973-ban. Számos csatornát ajánlott fel, amelyekre legfeljebb öt ember csatlakozhatott. 
  
 - A mi rendszerünk célja valamelyféle innováció hozzáadása ahhoz, amit 1973-ban kezdtek el és mai napig fejlődött.
 Mindeközben a szolgáltatásunk stabilitása prioritást élvez. A felhasználó chat résztvevőn képes lesz majd valamikor
 egyértelmű kezelőfelületen az adott chat szobán keresztül akadálymentesen tud a többi résztvevővel kommunikálni.
+
+- Az alkalmazás elérhető webes felületen, és letölthető formátumban is.
                    
 ## Igényelt üzleti folyamatok modellje
 
 - Az emberek számára szeretnénk megkönnyíteni a távolságtartást. Szeretnénk csoportoknak , közösségeknek egy olyan alkamazást
 nyújtani ami megkönnyíti nekik a beszélgetéseket, és az üzenetváltást. Megoszthatják egymással az élményeiket 
 képeken keresztül üzenetekkel vagy hangokall. Minnél többet beszélnek egymássla annál magasabb rangot kaphatnak a rendszertöl
- , ha valaki nagyon aktyv az feljebb lép , ha pedig inaktív akkor leesik rangban. A Felhasználók könnyebb tájékozódás érdekében
+ , ha valaki nagyon aktív az feljebb lép , ha pedig inaktív akkor leesik rangban. A Felhasználók könnyebb tájékozódás érdekében
  jelölni fogjuk hogy elérhető e , vagy épp elfoglalt esetleg inaktív állapotban van.
- 
+
+## Bővitésre szánt folyamatok modellje
+- Az alkalmazásunk bővíthető pl:
+    - Voice chat
+    - Emoji 
+    - Videó chat
+    - Pingelési módszer
+     
 ## Használati esetek
 
 - Beszélgetés
 - Szórakozás
 - Kapcsolattartás
+- Megosztás
 - Élmény
+
 
 ## Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
 
 - Beszélgetés >> K_8.1 (Üzenet küldés)
 - Szórakozás >>  K_9 (smile)
 - Kapcsolattartás >> K_3 (állapotjelző)
+- Megosztás >> K_8.1 (Üzenet küldés) stb
 - Élmény >> All (Az alkalmazás használata)
+
                                                
 ## Képernyő tervek
+
+- A program felülete:
 
 ![Image](https://github.com/gergof2/AFP2021/blob/main/docs/images/AFP_pictue_plan.jpg)
 
 ## Forgatóköny
 
-- A felhasználónak elösször be kell lépnie a program használatához.
+- A felhasználónak elösször be kell lépnie a program használatához. A netes felületen ehez egy kis
+segítség fogadja, és információk magáról az alakalmazásról.
 
 - Amennyiben még nem regisztrált az oldalra ezt megteheti egy regisztációs fülön keresztül
 itt elkérünk tölle egy e mail címet és/vagy felhasználónevet meg egy jelszót. A továbbiakban
-ezzel a párossal tud belépni  afelhasználó
+ezzel a párossal tud belépni a felhasználó.
 
 - Miután a felhasználó belépett a login oldalról átírányítjuk a "cset" oldalra ahol a közösen
-belépett felhasználókkal tud kommunikálni.
+belépett felhasználókkal tud kommunikálni. Itt láthatja a felhasználó, hogy ki van fent,
+ki elfoglalt, tétlen, vagy nincs éppen fent.
 
 - Minden uzenetküldésnél a send gombra kell kattintani , és az alkalmazás folyamatosan a legutolsó
-üzenetre ugrik le  (auto scroll) 
+üzenetre ugrik le (auto scroll) 
 
 - Az üzeneteket minden közös BELÉPETT felhasználó láthatja (aki a gép előtt tartózkodik XD) 
 
@@ -92,29 +113,24 @@ belépett felhasználókkal tud kommunikálni.
 afk állaporta majd később offline állapotba , mikor az utóbbi megtörténik akkor a program autómatikusan
 kijelentkezteti a felhasználót
 
-- Saját magának is tudja változtatni a státuszát már amennyiben szeretné
+- Saját magának is tudja változtatni a státuszát már amennyiben szeretné, kilépés gombal autómatikusan offline
+állapotba kerül.
 
 - A rendszer autómatikusan oszt rangokat bizonyos mennyiségű üzenet elküldése után pl: kezdö haladó veterán
 
 ## Fogalom szótár 
 
-- Afk állaot : egy olyan állapot amikor az illető nem tartózkodik a gép előtt , vagy tétlen esetleg nem nyűl hozzá
+- **Afk állaot** : egy olyan állapot amikor az illető nem tartózkodik a gép előtt , vagy tétlen esetleg nem nyűl hozzá
 (away from keyboard)
 
-- Smile : hangulatjel ( a kis sárga mosolygós fejecske XD )
+- **Smile** : hangulatjel ( a kis sárga mosolygós fejecske XD )
 
-- felület : amit a felhasználó láthat
+- **felület** : amit a felhasználó láthat (frontend)
 
-- modifikáció : változtatás ( a programban megváltozik valami)
+- **modifikáció** : változtatás ( a programban megváltozik valami)
 
-- dobozos szoftver : nem megrendelő álltal kért termék , nagy közönségnek készűlt
+- **dobozos szoftver** : nem megrendelő álltal kért termék , nagy közönségnek készűlt szoftver
+
+- **voice chat** : egy chat szoba ahol a felhasználók hangal kommunikálnak
                                
-                                  
-                                  
-                                  
-                                 
-                                                                                                               
-                                                                                                                   
-                                    
-
-  
+           
