@@ -21,13 +21,14 @@ class Api extends Controller {
     # http://localhost/api/delete GET
     public function delete()
     {
-        $this->model = $this->delete();
+        $id = $_GET['id'];
+        $delete = $this->model->deleteMessage($id);
     }
 
     public function login(){
         $username = $_GET['username'];
         $password = sha1($_GET['password']);
-        $user = $this->model->getLogin($username, $password);
+        $this->model->getLogin($username, $password);
     }
 
     public function register(){

@@ -8,9 +8,7 @@ class api_model extends Model {
         if($user = $this->getList($query))
         {
         	if($password == $this->getField($query2))
-        	{
-        		echo "Sikeres belépés!";
-        		var_dump($user);       		
+        	{     		
         		return $user;
         	}
         	else
@@ -88,5 +86,25 @@ class api_model extends Model {
                 echo "Státusz átállítás sikertelen!";
             }
         }
+    }
+
+    public function deleteMessage($id){
+        $query = "SELECT `id` FROM messages WHERE `id` = '" . $id . "'";
+        $res = $this->getList($query);
+        if($res == null)
+        {
+            echo "Nincs üzenet az adott id-n";
+        }
+        else{
+            $query2 = "DELETE FROM `messages` WHERE `id` = '" . $id . "'";
+            $result = $this->executeDML($query2);
+            if(!$result){
+                echo "Üzenet törlése sikeres volt!";
+            }
+            else{
+                echo "Üzenet törlése sikertelen!";
+            }
+        }
+
     }
 }
