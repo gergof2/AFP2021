@@ -37,21 +37,24 @@ class api_model extends Model {
     		if($res2 > null || empty($email)){
     			echo "Az email cím már foglalt vagy üres!";
     		}
-            else if($password == null)
-            {
+            else{
+                if($password == null){
                 echo "A jelszó nem lehet üres!";
+                }
+                else{
+                    $passw = sha1($password);
+                    $query3 = "INSERT INTO user (username, email, password, registerdate, statusid)
+                                VALUES ('$username', '$email', '$passw', NOW(), '1')";
+                    $result = $this->executeDML($query3);
+                    if(!$result){
+                    echo"Sikeres regisztráció!";
+                    }
+                    else{
+                        echo"Sikertelen regisztráció!";
+                    }
+                }
             }
-    		else{
-    			$query3 = "INSERT INTO user (username, email, password, registerdate, statusid)
-    						VALUES ('$username', '$email', '$password', NOW(), '1')";
-    			$result = $this->executeDML($query3);
-    			if(!$result){
-    				echo"Sikeres regisztráció!";
-    			}
-    			else{
-    				echo"Sikertelen regisztráció!";
-    			}
-    		}
+    		
     	}
     }
 
@@ -71,4 +74,19 @@ class api_model extends Model {
     	}
     }
 
+    public function statusChange($userid, $statusid){
+        if($statusid < 1 || $statusid > 4){
+            echo "Nincs ilyen státusz id";
+        }
+        else{
+            $query = "UPDATE `user` SET `statusid` = '" . $statusid . "' WHERE `id` = '" . $userid . "'";
+            $result = $this->executeDML($query);
+            if(!$result){
+                echo "Státusz sikeresen átállítva!";
+            }
+            else{
+                echo "Státusz átállítás sikertelen!";
+            }
+        }
+    }
 }

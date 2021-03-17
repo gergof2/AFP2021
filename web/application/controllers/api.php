@@ -33,12 +33,12 @@ class Api extends Controller {
     public function register(){
         $username = $_GET['username'];
         $email = $_GET['email'];
-        $password = sha1($_GET['password']);
+        $password = $_GET['password'];
         $regist = $this->model->postRegister($username, $email, $password);
     }
 
     public function sendmessages(){
-        $userid = $_GET['userid'];
+        $userid = $_GET['statusid'];
         $text = $_GET['text'];
         $sendmessages = $this->model->sendMessages($userid, $text);
 
@@ -49,7 +49,9 @@ class Api extends Controller {
     }
 
     public function statuschange(){
-        
+        $userid = $_GET['userid'];
+        $statusid = $_GET['statusid'];
+        $status = $this->model->statusChange($userid, $statusid);
     }
 }
 
