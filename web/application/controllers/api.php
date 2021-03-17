@@ -13,7 +13,6 @@ class Api extends Controller {
     # http://localhost/api GET
     public function index()
     {
-
         $data['messages'] = ['asd'];
 
         $this->load_view('home/index', $data);
@@ -25,19 +24,23 @@ class Api extends Controller {
         $this->model = $this->delete();
     }
 
-    public function login($username = "admin", $password = "admin"){
-        parent::__construct();
-        $this->model =$this->load_model('api_model');
-        $user = $this->model->getLogin();
-        var_dump($user);
-        $this->load_view('home/index', $user);
+    public function login(){
+        $username = $_GET['username'];
+        $password = sha1($_GET['password']);
+        $user = $this->model->getLogin($username, $password);
     }
 
     public function register(){
-
+        $username = $_GET['username'];
+        $email = $_GET['email'];
+        $password = sha1($_GET['password']);
+        $regist = $this->model->postRegister($username, $email, $password);
     }
 
     public function sendmessages(){
+        $userid = $_GET['userid'];
+        $text = $_GET['text'];
+        $sendmessages = $this->model->sendMessages($userid, $text);
 
     }
 

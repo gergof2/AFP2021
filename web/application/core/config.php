@@ -15,7 +15,7 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'AFP2021');
 define('DB_TYPE', 'mysql');
-define('DB_CHARSET', 'utf-8');
+define('DB_CHARSET', 'utf8');
 
 // Metadata
 define('SITE_NAME', '');
