@@ -26,23 +26,35 @@ class Api extends Controller {
     }
 
     public function login(){
-        $username = $_GET['username'];
-        $password = sha1($_GET['password']);
-        $this->model->getLogin($username, $password);
+        if(empty($_POST['username']) || empty($_POST['password']))
+        {
+            die("Az egyik mező üres!");
+        }
+        else{
+            return $this->model->getLogin($_POST['username'], sha1($_POST['password']));
+        }
     }
 
     public function register(){
-        $username = $_GET['username'];
-        $email = $_GET['email'];
-        $password = $_GET['password'];
-        $regist = $this->model->postRegister($username, $email, $password);
+         if(empty($_POST['username']) || empty($_POST['email']) || empty($_POST['password']))
+        {
+            die("Az egyik mező üres!");
+        }
+        else{
+            return $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']));
+        }
+        
     }
 
     public function sendmessages(){
-        $userid = $_GET['statusid'];
-        $text = $_GET['text'];
-        $sendmessages = $this->model->sendMessages($userid, $text);
-
+        if(empty($_POST['userid']) || empty($_POST['text']))
+        {
+            die("Az egyik mező üres!");
+        }
+        else
+        {
+            return $this->model->sendMessages($_POST['userid'], $_POST['text']);
+        }
     }
 
     public function sendfile(){
@@ -50,9 +62,14 @@ class Api extends Controller {
     }
 
     public function statuschange(){
-        $userid = $_GET['userid'];
-        $statusid = $_GET['statusid'];
-        $status = $this->model->statusChange($userid, $statusid);
+        if(empty($_POST['userid']) || empty($_POST['statusid']))
+        {
+            die("Az egyik mező üres!");
+        }
+        else
+        {
+            return $this->model->statusChange($_POST['userid'], $_POST['statusid']);
+        }
     }
 }
 

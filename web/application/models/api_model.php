@@ -3,57 +3,42 @@
 class api_model extends Model {
 
 	public function getLogin($username, $password){    	
-        $query = "SELECT * FROM `user` WHERE `username` = '" . $username. "'";
-        $query2 = "SELECT `password` FROM `user` WHERE `username` = '" . $username. "'";
-        if($user = $this->getList($query))
+        $query = "SELECT id FROM user WHERE username = :username AND password = :password";
+        $query_params = array( 
+        ':username' => $username,
+        ':password' => $password
+        ); 
+        try
         {
-        	if($password == $this->getField($query2))
-        	{     		
-        		return $user;
-        	}
-        	else
-        	{
-        		echo "Sikertelen belépés! Rossz jelszó!";
-        	}
+            $result = $this->getField($query, $query_params);
         }
-        else
-        {
-        	echo "Sikertelen belépés! Rossz felhasználónév!";
-        }
+        catch(PDOException $ex) 
+        { 
+            die("Sikertelen belépés " . $ex->getMessage()); 
+        } 
+        $userid = $result;
+        die("Sikeres belépés"); 
     }
 
     public function postRegister($username, $email, $password){
-    	$query = "SELECT `username` FROM user WHERE `username` = '" . $username . "'";
-    	$query2 = "SELECT `email` FROM user WHERE `email` = '" . $email . "'";
-    	$res1 = $this->getList($query);
-    	$res2 = $this->getList($query2);
-    	if($res1 > null || empty($username)){
-    		echo "A felhasználónév foglalt vagy üres!";
-    	}
-    	else
-    	{
-    		if($res2 > null || empty($email)){
-    			echo "Az email cím már foglalt vagy üres!";
-    		}
-            else{
-                if($password == null){
-                echo "A jelszó nem lehet üres!";
-                }
-                else{
-                    $passw = sha1($password);
-                    $query3 = "INSERT INTO user (username, email, password, registerdate, statusid)
-                                VALUES ('$username', '$email', '$passw', NOW(), '1')";
-                    $result = $this->executeDML($query3);
-                    if(!$result){
-                    echo"Sikeres regisztráció!";
-                    }
-                    else{
-                        echo"Sikertelen regisztráció!";
-                    }
-                }
-            }
-    		
-    	}
+        $query =
+        "INSERT INTO user (username, email, password, registerdate, statusid) VALUES(:username, :email, :password, NOW(), 1)";
+        $query_params = array( 
+        ':username' => $username,
+        ':email' => $email, 
+        ':password' => $password
+        );         
+        try
+        {
+            $result = $this->executeDML($query, $query_params);
+        }
+        catch(PDOException $ex) 
+        { 
+            die("Sikertelen regisztráció: " . $ex->getMessage()); 
+        } 
+        die("Sikeres Regisztréció"); 
+
+
     }
 
     public function sendMessages($userid, $text){
@@ -61,30 +46,42 @@ class api_model extends Model {
     		echo "Üres a szöveges rész!";
     	}
     	else{
-    		$query = "INSERT INTO messages (userid, text, timedate) VALUES('$userid', '$text', NOW())";
-    		$result = $this->executeDML($query);
-    		if(!$result){
-    			echo"Üzenet elküldve!";
-    		}
-    		else{
-    			echo"Nem sikerült elküldeni az üzenetet!";
-    		}
+    		$query = "INSERT INTO messages (userid, text, timedate) VALUES(:userid, :text, NOW())";
+            $query_params = array( 
+            ':userid' => $userid,
+            ':text' => $text
+            );  
+    		try
+            {
+                $result = $this->executeDML($query, $query_params);
+            }
+            catch(PDOException $ex) 
+            { 
+                die("Üzenet elküldése sikertelen: " . $ex->getMessage()); 
+            } 
+            die("Üzenet elküldve!"); 
     	}
     }
 
     public function statusChange($userid, $statusid){
         if($statusid < 1 || $statusid > 4){
-            echo "Nincs ilyen státusz id";
+            die("Nincs ilyen státusz id!");
         }
         else{
-            $query = "UPDATE `user` SET `statusid` = '" . $statusid . "' WHERE `id` = '" . $userid . "'";
-            $result = $this->executeDML($query);
-            if(!$result){
-                echo "Státusz sikeresen átállítva!";
+            $query = "UPDATE `user` SET `statusid` = :statusid WHERE `id` = :userid";
+            $query_params = array( 
+            ':statusid' => $statusid,
+            ':userid' => $userid
+            );  
+            try
+            {
+                $result = $this->executeDML($query, $query_params);
             }
-            else{
-                echo "Státusz átállítás sikertelen!";
-            }
+            catch(PDOException $ex) 
+            { 
+                die("Státusz átállítás sikertelen: " . $ex->getMessage()); 
+            } 
+            die("Státusz átállítás sikeres!"); 
         }
     }
 
