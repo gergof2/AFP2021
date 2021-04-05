@@ -1,5 +1,4 @@
 <?php
-
 class Api extends Controller {
 
     public $model;
@@ -47,13 +46,13 @@ class Api extends Controller {
     }
 
     public function sendmessages(){
-        if(empty($_POST['userid']) || empty($_POST['text']))
+        if(empty($_SESSION['id']) || empty($_POST['text']))
         {
             die("Az egyik mező üres!");
         }
         else
         {
-            return $this->model->sendMessages($_POST['userid'], $_POST['text']);
+            return $this->model->sendMessages($_SESSION['id'], $_POST['text']);
         }
     }
 
@@ -62,13 +61,13 @@ class Api extends Controller {
     }
 
     public function statuschange(){
-        if(empty($_POST['userid']) || empty($_POST['statusid']))
+        if(empty($_SESSION['id']) || empty($_POST['statusid']))
         {
             die("Az egyik mező üres!");
         }
         else
         {
-            return $this->model->statusChange($_POST['userid'], $_POST['statusid']);
+            return $this->model->statusChange($_SESSION['id'], $_POST['statusid']);
         }
     }
 }

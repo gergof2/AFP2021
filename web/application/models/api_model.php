@@ -1,5 +1,4 @@
 <?php
-
 class api_model extends Model {
 
 	public function getLogin($username, $password){    	
@@ -16,8 +15,9 @@ class api_model extends Model {
         { 
             die("Sikertelen belépés " . $ex->getMessage()); 
         } 
-        $userid = $result;
-        die("Sikeres belépés"); 
+        $_SESSION['id'] = $result;
+        $_SESSION['username'] = $username;
+        die("Sikeres belépés!"); 
     }
 
     public function postRegister($username, $email, $password){
@@ -48,7 +48,7 @@ class api_model extends Model {
     	else{
     		$query = "INSERT INTO messages (userid, text, timedate) VALUES(:userid, :text, NOW())";
             $query_params = array( 
-            ':userid' => $userid,
+            ':userid' => $_SESSION['id'],
             ':text' => $text
             );  
     		try
@@ -71,7 +71,7 @@ class api_model extends Model {
             $query = "UPDATE `user` SET `statusid` = :statusid WHERE `id` = :userid";
             $query_params = array( 
             ':statusid' => $statusid,
-            ':userid' => $userid
+            ':userid' => $_SESSION['id']
             );  
             try
             {
