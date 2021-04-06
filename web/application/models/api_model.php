@@ -15,9 +15,15 @@ class api_model extends Model {
         { 
             die("Sikertelen belépés " . $ex->getMessage()); 
         } 
+        if(empty($result))
+        {
+            die("Sikertelen belépés! Nincs ilyen felhasználó!");
+        }
         $_SESSION['id'] = $result;
         $_SESSION['username'] = $username;
+        var_dump($_SESSION['id']);
         die("Sikeres belépés!"); 
+        
     }
 
     public function postRegister($username, $email, $password){
@@ -36,7 +42,7 @@ class api_model extends Model {
         { 
             die("Sikertelen regisztráció: " . $ex->getMessage()); 
         } 
-        die("Sikeres Regisztréció"); 
+        die("Sikeres Regisztráció"); 
 
 
     }
