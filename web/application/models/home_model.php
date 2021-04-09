@@ -7,4 +7,9 @@ class home_model extends Model {
 
         return $messages;
     }
+
+    public function getLogin(){
+    	$user = $this->getList("SELECT * FROM `user`");
+    	return $user;
+    }
 }
