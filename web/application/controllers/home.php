@@ -9,7 +9,6 @@ class Home extends Controller {
         parent::__construct();
         $this->model = $this->load_model('home_model');
     }
-
     # http://localhost/
     public function index()
     {
