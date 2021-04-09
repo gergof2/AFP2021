@@ -1,6 +1,6 @@
 <?php
 
-define('URL', 'http://localhost');
+define('URL', 'localhost');
 
 //define('PROTOCOL', (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https' : 'http');
 //define('PROTOCOL', 'http');
