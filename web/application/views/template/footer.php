@@ -7,7 +7,7 @@
 
 			<div class="footer_third">
 				<h1>Need Help?</h1>
-				<a href="#">Help page</a>
+				<a href="/Howtoregister">How to register</a>
 			</div>
 
 			<div class="footer_third">
