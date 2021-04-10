@@ -21,8 +21,7 @@ class api_model extends Model {
         }
         $_SESSION['id'] = $result;
         $_SESSION['username'] = $username;
-        var_dump($_SESSION['id']);
-        die("Sikeres belépés!"); 
+        var_dump("Sikeres belépés!"); 
         
     }
 
@@ -42,7 +41,8 @@ class api_model extends Model {
         { 
             die("Sikertelen regisztráció: " . $ex->getMessage()); 
         } 
-        die("Sikeres Regisztráció"); 
+        var_dump("Sikeres Regisztráció!"); 
+        //echo '<a class="nav-link active center" aria-current="page" href="api/register" style="color: #6A1B4D">Sikeres Regisztráció!</a>';
 
 
     }
@@ -90,6 +90,20 @@ class api_model extends Model {
             die("Státusz átállítás sikeres!"); 
         }
     }
+
+    public function getMessages(){
+        $query = "SELECT * FROM messages ORDER BY timedate desc LIMIT 0,10";
+        $result = $this->getList($query);
+        if($result == null)
+        {
+            die("Nincs üzenet!");
+        }
+        else{
+            var_dump($result);
+            return $result;
+        }
+    }
+
 
     public function deleteMessage($id){
         $query = "SELECT `id` FROM messages WHERE `id` = '" . $id . "'";
