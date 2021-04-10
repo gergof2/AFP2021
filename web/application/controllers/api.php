@@ -70,5 +70,9 @@ class Api extends Controller {
             return $this->model->statusChange($_SESSION['id'], $_POST['statusid']);
         }
     }
+
+    public function messages(){
+        return $this->model->getMessages();
+    }
 }
 
