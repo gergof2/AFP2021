@@ -9,18 +9,19 @@ namespace Timber.Classes
 {
     class User
     {
-        public User()
+        public User(string Username, string Password)
         {
-
+            this.username = Username;
+            this.Password = Password;
         }
 
         private int id;
         public int Id { get; }
 
-        public string Username;
+        public string username;
 
         private string password;
-        public string Passowrd
+        public string Password
         {
             set 
             {
