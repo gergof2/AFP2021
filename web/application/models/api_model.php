@@ -1,7 +1,7 @@
 <?php
 class api_model extends Model {
 
-	public function getLogin($username, $password){    	
+	public function getLogin($username, $password, $place){    	
         $query = "SELECT id FROM user WHERE username = :username AND password = :password";
         $query_params = array( 
         ':username' => $username,
@@ -20,12 +20,19 @@ class api_model extends Model {
             die("Sikertelen belépés! Nincs ilyen felhasználó!");
         }
         $_SESSION['id'] = $result;
-        $_SESSION['username'] = $username;
-        var_dump("Sikeres belépés!"); 
+        $_SESSION['username'] = $username;        
+        if($place == true){
+            require_once 'application/views/template/header.php';
+            require_once 'application/views/home/login.php';
+            require_once 'application/views/template/footer.php';
+            //ide szunyinak a kiiratása!
+        }
+        else echo("Sikeres belépés!"); 
+        
         
     }
 
-    public function postRegister($username, $email, $password){
+    public function postRegister($username, $email, $password, $place){
         $query =
         "INSERT INTO user (username, email, password, registerdate, statusid) VALUES(:username, :email, :password, NOW(), 1)";
         $query_params = array( 
@@ -41,9 +48,13 @@ class api_model extends Model {
         { 
             die("Sikertelen regisztráció: " . $ex->getMessage()); 
         } 
-        var_dump("Sikeres Regisztráció!"); 
-        //echo '<a class="nav-link active center" aria-current="page" href="api/register" style="color: #6A1B4D">Sikeres Regisztráció!</a>';
-
+        if($place == true){
+            require_once 'application/views/template/header.php';
+            require_once 'application/views/home/login.php';
+            require_once 'application/views/template/footer.php';
+            //szunyinak a kiiratás!
+        }
+        else echo("Sikeres Regisztráció!"); 
 
     }
 

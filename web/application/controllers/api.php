@@ -27,33 +27,35 @@ class Api extends Controller {
     public function login()
     {
         $user = json_decode(file_get_contents('php://input'));
-        $username = $user->{'username'};
-        $password = $user->{'password'};
+        
 
-        if(!empty($username) && !empty($password))
-        {  
-            return $this->model->getLogin($username, sha1($password));
-        }
         if(!empty($_POST['username']) && !empty($_POST['password']))
         {
-            return $this->model->getLogin($_POST['username'], sha1($_POST['password']));
+            return $this->model->getLogin($_POST['username'], sha1($_POST['password']), true);
         }
+        $username = $user->{'username'};
+        $password = $user->{'password'};
+        if(!empty($username) && !empty($password))
+        {             
+            return $this->model->getLogin($username, sha1($password), false);
+        }
+        
         die("Az egyik mező üres!");
     }
 
     public function register(){
         $user = json_decode(file_get_contents('php://input'));
+             
+        if(!empty($_POST['username']) && !empty($_POST['password'] && !empty($_POST['email'])))
+        {
+            return $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']), true);
+        }
         $username = $user->{'username'};
         $password = $user->{'password'};
         $email = $user->{'Email'};
-
         if(!empty($username) && !empty($password) && !empty($email))
         {  
-            return $this->model->postRegister($username, $email, sha1($password));
-        }
-        if(!empty($_POST['username']) && !empty($_POST['password'] && !empty($_POST['email'])))
-        {
-            return $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']));
+            return $this->model->postRegister($username, $email, sha1($password), false);
         }
         die("Az egyik mező üres!");
         
