@@ -33,7 +33,7 @@ class Model {
         $result = $success ? $statement->fetch() : $statement->errorInfo()[2];
         $statement->closeCursor();
         $connection = null;
-        return $result[0];
+        return $result;
     }    
     
     public function executeDML($queryString, $queryParams = []) {

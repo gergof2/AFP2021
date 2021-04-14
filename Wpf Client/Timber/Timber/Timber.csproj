@@ -120,5 +120,14 @@
   <ItemGroup>
     <Resource Include="tree-stump_2009030.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="To-Do List.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="placeholder.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

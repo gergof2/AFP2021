@@ -29,30 +29,43 @@ namespace Timber
             client.BaseAddress = new Uri("http://localhost/api/");
         }
 
-        static HttpClient client = new HttpClient();
+        public HttpClient client = new HttpClient();
 
 
         private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
             User loggedInUser = new User(usernameBox.Text, passwordBox.Text);
-
-            GetLogin();
+            Login();
         }
 
-        private async Task<User> GetLogin()
+        private void OpenRegisterWindow(object sender, RoutedEventArgs e)
         {
-            User user = null;
-            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = new HttpResponseMessage();
-            response = await client.GetAsync("api/login").ConfigureAwait(false);
+            RegisterWindow registerWindow = new RegisterWindow(this);
+            registerWindow.ShowDialog();
 
-            if(response.IsSuccessStatusCode)
+        }
+
+        private async Task<User> Login()
+        {
+            User user = new User()
             {
-                user = await response.Content.ReadAsAsync<User>();
-            }
+                username = passwordBox.Text,
+                password = passwordBox.Text
+            };
 
+            var json = JsonConvert.SerializeObject(user);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            
+            MessageBox.Show(json);
+            var url = "http://localhost/api/login";
+            var response = await client.PostAsync(url, data);
+
+            string result = response.Content.ReadAsStringAsync().Result;
+            MessageBox.Show(result);
             return user;
 
         }
+
+        
     }
 }

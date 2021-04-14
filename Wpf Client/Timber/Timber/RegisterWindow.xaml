@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Timber"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
+        Title="RegisterWindow" Height="224" Width="337">
     <Grid>
-        
+        <TextBox x:Name="emailTb" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" TextWrapping="Wrap" Width="198" Margin="92,29,0,0"/>
+        <TextBox x:Name="usernameTb" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" Margin="92,56,0,0"/>
+        <TextBox x:Name="passwordTb" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" Margin="92,84,0,0"/>
+        <Button x:Name="RegisterBtn" Content="Register Account" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="108,129,0,0" Click="RegisterBtnClick" Height="24"/>
+        <Label x:Name="label" Content="E-mail:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,28,0,0"/>
+        <Label x:Name="label1" Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,83,0,0" Width="62"/>
+        <Label x:Name="label2" Content="Username:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,54,0,0" Width="66"/>
+
     </Grid>
 </Window>
