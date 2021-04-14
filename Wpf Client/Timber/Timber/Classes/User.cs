@@ -9,24 +9,20 @@ namespace Timber.Classes
 {
     class User
     {
-        public User()
-        {
+        public User() { }
 
+        public User(string Username, string Password)
+        {
+            this.username = Username;
+            this.password = Password;
         }
 
         private int id;
         public int Id { get; }
 
-        public string Username;
+        public string username;
 
-        private string password;
-        public string Passowrd
-        {
-            set 
-            {
-                password = value;
-            }
-        }
+        public string password { get; set; }
 
         private string email;
         public string Email
@@ -34,17 +30,17 @@ namespace Timber.Classes
             get { return email; }
             set
             {
-                if (Regex.IsMatch(email,
+                /*if (Regex.IsMatch(email,
                     @"[a - z0 - 9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
                     RegexOptions.IgnoreCase,
                     TimeSpan.FromMilliseconds(250)))
-                {
+                {*/
                     email = value;
-                }
+                /*}
                 else
                 {
                     throw new Exception("Must enter a valid email address!");
-                }
+                }*/
             }
         }
 

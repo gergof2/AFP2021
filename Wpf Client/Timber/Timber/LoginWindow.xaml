@@ -1,0 +1,19 @@
+﻿<Window x:Class="Timber.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Timber"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="392" Width="349.333">
+    <Grid>
+        <TextBox x:Name="usernameBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="108,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox x:Name="passwordBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="108,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <Button x:Name="button" Content="Log in" HorizontalAlignment="Left" Margin="108,309,0,0" VerticalAlignment="Top" Width="75" Click="LoginButtonClick" Height="33"/>
+        <Button x:Name="button1" Content="Create Account" HorizontalAlignment="Left" Margin="188,309,0,0" VerticalAlignment="Top" Width="107" Click="OpenRegisterWindow" Height="33"/>
+        <Label x:Name="label" Content="Username:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,245,0,0" Width="66"/>
+        <Label x:Name="label1" Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,274,0,0"/>
+        <Image x:Name="placeholder_png" Margin="57,10,0,0" Source="placeholder.png" Stretch="Uniform" HorizontalAlignment="Left" Width="238" Height="224" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

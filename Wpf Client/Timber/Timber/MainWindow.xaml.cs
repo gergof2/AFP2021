@@ -37,7 +37,7 @@ namespace Timber
         public List<Message> Messages = new List<Message>();
         public List<string> OnlineUsers = new List<string>();
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             SendMessage();
         }
