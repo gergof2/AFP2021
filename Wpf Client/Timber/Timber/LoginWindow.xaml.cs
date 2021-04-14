@@ -49,7 +49,7 @@ namespace Timber
         {
             User user = new User()
             {
-                username = passwordBox.Text,
+                username = usernameBox.Text,
                 password = passwordBox.Text
             };
 
