@@ -1,7 +1,7 @@
 <?php
 class api_model extends Model {
 
-	public function getLogin($username, $password, $place){    	
+	public function getLogin($username, $password, $place){   	
         $query = "SELECT id FROM user WHERE username = :username AND password = :password";
         $query_params = array( 
         ':username' => $username,
@@ -9,7 +9,7 @@ class api_model extends Model {
         ); 
         try
         {
-            $result = $this->getField($query, $query_params);
+            $result = $this->getRecord($query, $query_params);
         }
         catch(PDOException $ex) 
         { 
@@ -19,13 +19,14 @@ class api_model extends Model {
         {
             die("Sikertelen belépés! Nincs ilyen felhasználó!");
         }
-        $_SESSION['id'] = $result;
+        $_SESSION['id'] = $result[0];
         $_SESSION['username'] = $username;        
         if($place == true){
             require_once 'application/views/template/header.php';
             require_once 'application/views/home/login.php';
             require_once 'application/views/template/footer.php';
             //ide szunyinak a kiiratása!
+            var_dump($result);
         }
         else echo("Sikeres belépés!"); 
         
@@ -58,26 +59,27 @@ class api_model extends Model {
 
     }
 
-    public function sendMessages($userid, $text){
-    	if($text == null){
-    		echo "Üres a szöveges rész!";
-    	}
-    	else{
-    		$query = "INSERT INTO messages (userid, text, timedate) VALUES(:userid, :text, NOW())";
-            $query_params = array( 
-            ':userid' => $_SESSION['id'],
-            ':text' => $text
-            );  
-    		try
-            {
-                $result = $this->executeDML($query, $query_params);
-            }
-            catch(PDOException $ex) 
-            { 
-                die("Üzenet elküldése sikertelen: " . $ex->getMessage()); 
-            } 
-            die("Üzenet elküldve!"); 
-    	}
+    public function sendMessages($userid, $text, $place){
+    	$query = "INSERT INTO messages (userid, text, timedate) VALUES(:userid, :text, NOW())";
+        $query_params = array( 
+        ':userid' => $_SESSION['id'],
+        ':text' => $text
+        );  
+    	try
+        {
+            $result = $this->executeDML($query, $query_params);
+        }
+        catch(PDOException $ex) 
+        { 
+            die("Üzenet elküldése sikertelen: " . $ex->getMessage()); 
+        } 
+        if($place == true){
+            require_once 'application/views/template/header.php';
+            //require_once 'application/views/home/login.php';
+            require_once 'application/views/template/footer.php';
+            //szunyi a kiiratás!          
+        }
+        else echo("Üzenet elküldve!"); 
     }
 
     public function statusChange($userid, $statusid){
@@ -103,14 +105,13 @@ class api_model extends Model {
     }
 
     public function getMessages(){
-        $query = "SELECT * FROM messages ORDER BY timedate desc LIMIT 0,10";
+        $query = "SELECT messages.id, username, text, timedate FROM messages INNER JOIN user ON messages.userid = user.id ORDER BY messages.id LIMIT 0,10";
         $result = $this->getList($query);
         if($result == null)
         {
             die("Nincs üzenet!");
         }
         else{
-            var_dump($result);
             return $result;
         }
     }

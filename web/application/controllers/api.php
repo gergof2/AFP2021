@@ -62,14 +62,17 @@ class Api extends Controller {
     }
 
     public function sendmessages(){
-        if(empty($_SESSION['id']) || empty($_POST['text']))
+        $message = json_decode(file_get_contents('php://input'));
+        if(!empty($_SESSION['id']) && !empty($_POST['text']))
         {
-            die("Az egyik mező üres!");
+             return $this->model->sendMessages($_SESSION['id'], $_POST['text'], true);
         }
-        else
+        $text = $message->{'text'};
+        if(!empty($_SESSION['id']) && !empty($text))
         {
-            return $this->model->sendMessages($_SESSION['id'], $_POST['text']);
+            return $this->model->sendMessages($_SESSION['id'], $text, false);
         }
+        die("Üres szöveges mező!");
     }
 
     public function sendfile(){
@@ -88,7 +91,10 @@ class Api extends Controller {
     }
 
     public function messages(){
-        return $this->model->getMessages();
+        $response = $this->model->getMessages();
+        var_dump($response);
+        return json_encode($response);
+        
     }
 }
 
