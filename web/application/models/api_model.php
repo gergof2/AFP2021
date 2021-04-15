@@ -28,7 +28,10 @@ class api_model extends Model {
             //ide szunyinak a kiiratása!
             var_dump($result);
         }
-        else echo("Sikeres belépés!"); 
+        else
+        {
+            echo $_SESSION['id'];
+        } 
         
         
     }

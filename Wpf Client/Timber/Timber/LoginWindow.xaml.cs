@@ -29,13 +29,27 @@ namespace Timber
             client.BaseAddress = new Uri("http://localhost/api/");
         }
 
+        MainWindow mainWindow;
         public HttpClient client = new HttpClient();
+        public int SessionId = -1;
+        User loggedInUser;
 
-
-        private void LoginButtonClick(object sender, RoutedEventArgs e)
+        private async void LoginButtonClick(object sender, RoutedEventArgs e)
         {
-            User loggedInUser = new User(usernameBox.Text, passwordBox.Text);
-            Login();
+            loggedInUser = new User(usernameBox.Text, passwordBox.Text);
+            await Login();
+            if (SessionId != -1)
+            {
+                OpenMainWindow();
+            }
+
+        }
+
+        private void OpenMainWindow()
+        {
+            mainWindow = new MainWindow(SessionId, loggedInUser.username, client);
+            mainWindow.Show();
+            Close();
         }
 
         private void OpenRegisterWindow(object sender, RoutedEventArgs e)
@@ -47,25 +61,43 @@ namespace Timber
 
         private async Task<User> Login()
         {
+
             User user = new User()
             {
                 username = usernameBox.Text,
                 password = passwordBox.Text
             };
 
-            var json = JsonConvert.SerializeObject(user);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            
-            MessageBox.Show(json);
-            var url = "http://localhost/api/login";
-            var response = await client.PostAsync(url, data);
+            if (user.username == null || user.username == "" || user.password == null || user.password == "")
+            {
+                MessageBox.Show("Üres az egyik mező!");
+                return null;
+            }
+            else
+            {
+                var json = JsonConvert.SerializeObject(user);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            string result = response.Content.ReadAsStringAsync().Result;
-            MessageBox.Show(result);
-            return user;
+                User backUser = JsonConvert.DeserializeObject<User>(json);
 
+                var url = "http://localhost/api/login";
+                var response = await client.PostAsync(url, data);
+
+                string result = response.Content.ReadAsStringAsync().Result;
+                if (result != "Sikertelen belépés! Nincs ilyen felhasználó!")
+                {
+                    MessageBox.Show("Sikeres belépés!");
+                    this.SessionId = int.Parse(result);
+                    MessageBox.Show($"Session Id: {SessionId}");
+                    //mainWindow = new ChatWindow(SessionId, client);
+                    //mainWindow.ShowDialog();
+                    return user;
+                }
+                else MessageBox.Show(result);
+                return null;
+            }
         }
 
-        
+
     }
 }

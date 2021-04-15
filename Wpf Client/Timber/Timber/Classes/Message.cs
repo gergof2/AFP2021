@@ -8,25 +8,18 @@ namespace Timber.Classes
 {
     public class Message
     {
-        public Message(int UserId, string Text)
+        public Message(string username, string text, DateTime date)
         {
-            this.UserId = UserId;
-            this.Text = Text;
-            TimeDate = DateTime.Now;
-            Id = idCounter;
-            idCounter++;
+            this.username = username;
+            this.text = text;
+            this.date = date;
         }
 
-        private static int idCounter = 0;
-        public int Id {get;}
+        public int id;
+        public string username;
+        public string text;
+        public DateTime date;
 
-        public int UserId { get; set; }
-
-        public string Text { get; set; }
-
-        //public File SentFile { get; set; }
-
-        public DateTime TimeDate { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -38,8 +31,8 @@ namespace Timber.Classes
             {
                 return false;
             }
-            return this.Text == ((Message)obj).Text
-                && this.Id == ((Message)obj).Id;
+            return this.text == ((Message)obj).text
+                && this.id == ((Message)obj).id;
         }
     }
 }
