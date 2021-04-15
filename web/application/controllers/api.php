@@ -27,11 +27,18 @@ class Api extends Controller {
     public function login()
     {
         $user = json_decode(file_get_contents('php://input'));
-        
+
 
         if(!empty($_POST['username']) && !empty($_POST['password']))
         {
-            return $this->model->getLogin($_POST['username'], sha1($_POST['password']), true);
+            $result =  $this->model->getLogin($_POST['username'], $_POST['password']);
+            if (isset($result['username'])) {
+                $_SESSION['username'] = $result['username'];
+                $this->redirect('/message');
+            } else {
+                $_SESSION['message'] = 'Sikertelen bejelentkezés!';
+                $this->redirect('/login');
+            }
         }
         $username = $user->{'username'};
         $password = $user->{'password'};

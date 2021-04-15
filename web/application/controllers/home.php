@@ -7,7 +7,7 @@ class Home extends Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->model = $this->load_model('home_model');
+        $this->model = $this->load_model('api_model');
     }
     ///////////////////
     //nav link
@@ -24,10 +24,20 @@ class Home extends Controller {
         $this->load_view('home/login');
     }
 
+    public function logout() {
+        session_destroy();
+        $this->redirect('/');
+    }
+
     public function Howtoregister(){
         $this->load_view('/helper/Howtoregister');
     }
     public function registration(){
         $this->load_view('home/registration');
+    }
+
+    public function message() {
+        $data = $this->model->getMessages();
+        $this->load_view('home/message', $data);
     }
 }

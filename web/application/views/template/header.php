@@ -29,15 +29,27 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index" style="color: #6A1B4D">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/registration" style="color: #6A1B4D">Registration</a>
-            </li>
-                        <li class="nav-item">
-              <a class="nav-link" href="/login" style="color: #6A1B4D">Login</a>
-            </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index" style="color: #6A1B4D">Home</a>
+              </li>
+              <?php if (isset($_SESSION['username'])): ?>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/message" style="color: #6A1B4D">Messages</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/logout" style="color: #6A1B4D">Logout</a>
+                  </li>
+                  <li class="nav-item">
+                      <div><?=$_SESSION['username']?></div>
+                  </li>
+              <?php else: ?>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/registration" style="color: #6A1B4D">Registration</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/login" style="color: #6A1B4D">Login</a>
+                  </li>
+              <?php endif ?>
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

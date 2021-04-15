@@ -1,39 +1,20 @@
 <?php
 class api_model extends Model {
 
-	public function getLogin($username, $password, $place){   	
-        $query = "SELECT id FROM user WHERE username = :username AND password = :password";
+	public function getLogin($username, $password) {
+        $query = "SELECT * FROM user WHERE username = :username AND password = :password";
         $query_params = array( 
-        ':username' => $username,
-        ':password' => $password
+            ':username' => $username,
+            ':password' => $password
         ); 
         try
         {
-            $result = $this->getRecord($query, $query_params);
+            return $this->getRecord($query, $query_params);
         }
         catch(PDOException $ex) 
-        { 
-            die("Sikertelen belépés " . $ex->getMessage()); 
-        } 
-        if(empty($result))
         {
-            die("Sikertelen belépés! Nincs ilyen felhasználó!");
+            return $ex->getMessage();
         }
-        $_SESSION['id'] = $result[0];
-        $_SESSION['username'] = $username;        
-        if($place == true){
-            require_once 'application/views/template/header.php';
-            require_once 'application/views/home/login.php';
-            require_once 'application/views/template/footer.php';
-            //ide szunyinak a kiiratása!
-            var_dump($result);
-        }
-        else
-        {
-            echo $_SESSION['id'];
-        } 
-        
-        
     }
 
     public function postRegister($username, $email, $password, $place){
@@ -108,13 +89,14 @@ class api_model extends Model {
     }
 
     public function getMessages(){
-        $query = "SELECT messages.id, username, text, timedate FROM messages INNER JOIN user ON messages.userid = user.id ORDER BY messages.id LIMIT 0,10";
+        $query = "SELECT * FROM `messages`";
+	    //$query = "SELECT messages.id, username, text, timedate FROM messages INNER JOIN user ON messages.userid = user.id ORDER BY messages.id LIMIT 0,10";
         $result = $this->getList($query);
         if($result == null)
         {
             die("Nincs üzenet!");
         }
-        else{
+        else {
             return $result;
         }
     }
