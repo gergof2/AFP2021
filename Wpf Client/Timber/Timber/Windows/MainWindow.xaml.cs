@@ -31,16 +31,17 @@ namespace Timber
             this.username = username;
 
             GetMessages();
-            //RefreshOnlineUsers();
-            //RefreshMessages();
         }
 
-        public MessageTransactions messages = new MessageTransactions();
+        #region Variables
+        public List<Message> messages = new List<Message>();
         public List<string> OnlineUsers = new List<string>();
         public int SessionId;
         public string username;
         HttpClient client;
+        #endregion
 
+        #region Message Sending Functions
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (textBox.Text != "")
@@ -50,30 +51,6 @@ namespace Timber
             textBox.Text = "";
             GetMessages();
         }
-
-        /*private void RefreshMessages()
-        {
-            MsgListBox.Items.Clear();
-            for (int i = Messages.Count - 1; i >= 0; i--)
-            {
-                MsgListBox.Items.Insert(0, Messages[i]);
-            }
-            MsgListBox.SelectedItem = null;
-            ScrollToBottom();
-        }*/
-
-        private void RefreshOnlineUsers()
-        {
-            lock (typeof(MainWindow))
-            {
-                UserListBox.Items.Clear();
-                for (int i = 0; i < OnlineUsers.Count - 1; i++)
-                {
-                    UserListBox.Items.Add(OnlineUsers[i]);
-                }
-            }
-        }
-
         private async void SendMessage()
         {
             Message newMessage = new Message(username, textBox.Text, DateTime.Now);
@@ -83,29 +60,13 @@ namespace Timber
             var response = await client.PostAsync(url, data);
 
             string result = response.Content.ReadAsStringAsync().Result;
-            
+
             MessageBox.Show(result);
-            
+
         }
+        #endregion
 
-
-        private void ScrollToBottom()
-        {
-            lock (typeof(MainWindow))
-            {
-                object LastMessage = MsgListBox.Items[MsgListBox.Items.Count - 1];
-                MsgListBox.ScrollIntoView((object)LastMessage);
-            }
-        }
-
-        private void EnterPress(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                SendMessage();
-            }
-        }
-
+        #region Data Receiving Functions
         private async void GetMessages()
         {
             var url = "http://localhost/api/messages";
@@ -118,8 +79,51 @@ namespace Timber
             }
             else
             {
-                messages = JsonConvert.DeserializeObject<MessageTransactions>(jsonResult); //does not work here due to the format of the json
+                messages = JsonConvert.DeserializeObject<List<Message>>(jsonResult);
+                RefreshMessages();
             }
         }
+        #endregion
+
+        #region UI Functions
+        private void EnterPress(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                SendMessage();
+            }
+        }
+        private void ScrollToBottom()
+        {
+            lock (typeof(MainWindow))
+            {
+                object LastMessage = MsgListBox.Items[MsgListBox.Items.Count - 1];
+                MsgListBox.ScrollIntoView((object)LastMessage);
+            }
+        }
+        private void RefreshMessages()
+        {
+            MsgListBox.Items.Clear();
+            for (int i = messages.Count - 1; i >= 0; i--)
+            {
+                MsgListBox.Items.Insert(0, messages[i]);
+            }
+            MsgListBox.SelectedItem = null;
+            ScrollToBottom();
+        }
+        private void RefreshOnlineUsers()
+        {
+            /*
+            lock (typeof(MainWindow))
+            {
+                UserListBox.Items.Clear();
+                for (int i = 0; i < OnlineUsers.Count - 1; i++)
+                {
+                    UserListBox.Items.Add(OnlineUsers[i]);
+                }
+            }
+            */
+        }
+        #endregion
     }
 }
