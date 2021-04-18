@@ -8,18 +8,38 @@ namespace Timber.Classes
 {
     public class Message
     {
-        public Message(string username, string text, DateTime date)
+        public Message(string username, string text, DateTime timedate)
         {
             this.username = username;
             this.text = text;
-            this.date = date;
+            this.timedate = timedate;
         }
 
-        public int id;
-        public string username;
-        public string text;
-        public DateTime date;
+        private int _id;
+        private string _username;
+        private string _text;
+        private DateTime _timedate;
 
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+        public string username
+        {
+            get { return _username; }
+            set { _username = value; }
+        }
+        public string text
+        {
+            get { return _text; }
+            set { _text = value; }
+        }
+        public DateTime timedate
+        {
+            get { return _timedate; }
+            set { _timedate = value; }
+        }
 
         public override bool Equals(object obj)
         {

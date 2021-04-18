@@ -88,9 +88,7 @@ namespace Timber
                 {
                     MessageBox.Show("Sikeres belépés!");
                     this.SessionId = int.Parse(result);
-                    MessageBox.Show($"Session Id: {SessionId}");
-                    //mainWindow = new ChatWindow(SessionId, client);
-                    //mainWindow.ShowDialog();
+                    //MessageBox.Show($"Session Id: {SessionId}");
                     return user;
                 }
                 else MessageBox.Show(result);
