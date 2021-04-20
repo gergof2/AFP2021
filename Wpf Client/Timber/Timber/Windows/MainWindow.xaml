@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Timber"
         mc:Ignorable="d"
-        Title="Timber" ResizeMode="NoResize" Height="570.35" Width="951.701"
-        
-        Icon="tree-stump_2009030.jpg">
+        Title="Timber" ResizeMode="NoResize" Height="570.35" Width="951.701">
+    
     <Grid>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="40" Margin="10,431,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="709" KeyDown="EnterPress"/>
         <ListBox x:Name="MsgListBox" HorizontalAlignment="Left" Height="416" Margin="10,10,0,0" VerticalAlignment="Top" Width="709">

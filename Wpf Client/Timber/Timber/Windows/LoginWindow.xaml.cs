@@ -80,7 +80,7 @@ namespace Timber
 
                 User backUser = JsonConvert.DeserializeObject<User>(json);
 
-                var url = "http://localhost/api/login";
+                var url = "http://localhost/api/clientLogin";
                 var response = await client.PostAsync(url, data);
 
                 string result = response.Content.ReadAsStringAsync().Result;
