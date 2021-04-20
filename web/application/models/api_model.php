@@ -17,6 +17,28 @@ class api_model extends Model {
         }
     }
 
+    public function getClientLogin($username, $password) {
+        $query = "SELECT id FROM user WHERE username = :username AND password = :password";
+        $query_params = array( 
+        ':username' => $username,
+        ':password' => $password
+        ); 
+        try
+        {
+            $result = $this->getRecord($query, $query_params);
+        }
+        catch(PDOException $ex) 
+        { 
+            die("Sikertelen belépés " . $ex->getMessage()); 
+        } 
+        if(empty($result))
+        {
+            die("Sikertelen belépés! Nincs ilyen felhasználó!");
+        }
+        $_SESSION['id'] = $result[0];
+        echo $_SESSION['id'];
+    }
+
     public function postRegister($username, $email, $password, $place){
         $query =
         "INSERT INTO user (username, email, password, registerdate, statusid) VALUES(:username, :email, :password, NOW(), 1)";
@@ -89,8 +111,8 @@ class api_model extends Model {
     }
 
     public function getMessages(){
-        $query = "SELECT * FROM `messages`";
-	    //$query = "SELECT messages.id, username, text, timedate FROM messages INNER JOIN user ON messages.userid = user.id ORDER BY messages.id LIMIT 0,10";
+        //$query = "SELECT * FROM `messages`";
+	    $query = "SELECT messages.id, username, text, timedate FROM messages INNER JOIN user ON messages.userid = user.id ORDER BY messages.id LIMIT 0,10";
         $result = $this->getList($query);
         if($result == null)
         {

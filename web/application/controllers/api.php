@@ -57,13 +57,6 @@ class Api extends Controller {
         {
             return $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']), true);
         }
-        $username = $user->{'username'};
-        $password = $user->{'password'};
-        $email = $user->{'Email'};
-        if(!empty($username) && !empty($password) && !empty($email))
-        {  
-            return $this->model->postRegister($username, $email, sha1($password), false);
-        }
         die("Az egyik mező üres!");
         
     }
@@ -80,6 +73,18 @@ class Api extends Controller {
             return $this->model->sendMessages($_SESSION['id'], $text, false);
         }
         die("Üres szöveges mező!");
+    }
+
+     public function clientLogin(){
+        $user = json_decode(file_get_contents('php://input'));
+
+        $username = $user->{'username'};
+        $password = $user->{'password'};
+        if(!empty($username) && !empty($password))
+        {             
+            return $this->model->getClientLogin($username, sha1($password));
+        }
+        die("Az egyik mező üres!");
     }
 
     public function sendfile(){
@@ -99,8 +104,8 @@ class Api extends Controller {
 
     public function messages(){
         $response = $this->model->getMessages();
-        var_dump($response);
-        return json_encode($response);
+        $out = array_values($response);
+        echo json_encode($out);
         
     }
 }
