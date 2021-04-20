@@ -5,7 +5,7 @@ class api_model extends Model {
         $query = "SELECT * FROM user WHERE username = :username AND password = :password";
         $query_params = array( 
             ':username' => $username,
-            ':password' => $password
+            ':password' => sha1($password)
         ); 
         try
         {

@@ -57,6 +57,13 @@ class Api extends Controller {
         {
             return $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']), true);
         }
+        $username = $user->{'username'};
+        $password = $user->{'password'};
+        $email = $user->{'Email'};
+        if(!empty($username) && !empty($password) && !empty($email))
+        {  
+            return $this->model->postRegister($username, $email, sha1($password), false);
+        }
         die("Az egyik mező üres!");
         
     }
