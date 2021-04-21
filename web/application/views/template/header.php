@@ -37,11 +37,10 @@
                       <a class="nav-link" href="/message" style="color: #6A1B4D">Messages</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="/logout" style="color: #6A1B4D">Logout</a>
+                      <a class="nav-link" href="/profile" style=" color: #6A1B4D">My profile: <?=$_SESSION['username']?></a>                      
                   </li>
                   <li class="nav-item">
-                      <div><?=$_SESSION['username']?></div>
-                      <div><?=$_SESSION['id']?></div>
+                      <a class="nav-link" href="/logout" style="color: #6A1B4D">Logout</a>
                   </li>
               <?php else: ?>
                   <li class="nav-item">

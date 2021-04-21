@@ -108,6 +108,16 @@
   border-radius: 20px;
   outline: none;
 }
+.widinput {
+  width: 615px;
+  display: block;
+  margin: 1rem auto;
+  border: 4px solid #fff;
+  padding: 8px;
+  background: transparent;
+  border-radius: 20px;
+  outline: none;
+}
 
 .button {
   background: lightblue;

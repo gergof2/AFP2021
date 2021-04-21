@@ -13,5 +13,9 @@
 		<button class="button mycolor" type="submit" name="login_user">Log In</button>
 
 		<p>Not a user? <a href="/registration"><b>Register Here</b></a></p>
+		<?php
+		if (!empty($_SESSION['message'])) {
+			echo $_SESSION['message'];
+		} ?>
 	</form>
 </div>

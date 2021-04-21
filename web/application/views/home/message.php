@@ -36,7 +36,7 @@
 <div>
 	<form action="api/sendmessages" method="post">
 		<div >
-			<input class="input" type="text" name="message" required placeholder="Üzenj a barátaidnak :D">
+			<input class="widinput" type="text" name="message" required placeholder="Üzenj a barátaidnak :D">
 		</div>
 
 		<button action="home/message" class="button mycolor" type="submit" >Send message</button>		
