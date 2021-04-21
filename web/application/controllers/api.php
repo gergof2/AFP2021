@@ -25,10 +25,7 @@ class Api extends Controller {
     }
 
     public function login()
-    {
-        $user = json_decode(file_get_contents('php://input'));
-
-
+    {        
         if(!empty($_POST['username']) && !empty($_POST['password']))
         {
             $result =  $this->model->getLogin($_POST['username'], $_POST['password']);
@@ -41,63 +38,29 @@ class Api extends Controller {
                 $this->redirect('/login');
             }
         }
-        $username = $user->{'username'};
-        $password = $user->{'password'};
-        if(!empty($username) && !empty($password))
-        {             
-            return $this->model->getLogin($username, sha1($password), false);
-        }
-        
-        die("Az egyik mező üres!");
     }
 
     public function register(){
-        $user = json_decode(file_get_contents('php://input'));
              
         if(!empty($_POST['username']) && !empty($_POST['password'] && !empty($_POST['email'])))
         {
             $data = $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']));           
-             return $this->load_view('home/login',$data);
+            return $this->load_view('home/login',$data);
         }
-        $username = $user->{'username'};
-        $password = $user->{'password'};
-        $email = $user->{'Email'};
-        if(!empty($username) && !empty($password) && !empty($email))
-        {  
-            return $this->model->postRegister($username, $email, sha1($password));
-        }
-        die("Az egyik mező üres!");
         
     }
 
     public function sendmessages(){
-        $message = json_decode(file_get_contents('php://input'));
-
+        
          if(!empty($_SESSION['username']))
          {
-            $this->model->sendMessages($_SESSION['id'], $_POST['message'], true);
+            $this->model->sendMessages($_SESSION['id'], $_POST['message']);
             $data = $this->model->getMessages();      
             return $this->load_view('home/message',$data);
          }
-        $text = $message->{'text'};
-        if(!empty($_SESSION['id']) && !empty($text))
-        {
-            return $this->model->sendMessages($_SESSION['id'], $text, false);
-        }
-        die("Üres szöveges mező!");
     }
-
-     public function clientLogin(){
-        $user = json_decode(file_get_contents('php://input'));
-
-        $username = $user->{'username'};
-        $password = $user->{'password'};
-        if(!empty($username) && !empty($password))
-        {             
-            return $this->model->getClientLogin($username, sha1($password));
-        }
-        die("Az egyik mező üres!");
-    }
+ 
+#--------------------------Ideas-----------------------------------------------
 
     public function sendfile(){
 
@@ -114,11 +77,48 @@ class Api extends Controller {
         }
     }
 
+#--------------------------Universal---------------------------------------------
+
     public function messages(){
         $response = $this->model->getMessages();
         $out = array_values($response);
-        echo json_encode($out);
-        
+        echo json_encode($out);       
     }
+
+#---------------------------Cleint Functions-------------------------------------
+
+    public function clientLogin(){
+        $user = json_decode(file_get_contents('php://input'));      
+        $username = $user->{'username'};
+        $password = $user->{'password'};
+        if(!empty($username) && !empty($password))
+        {             
+            return $this->model->getClientLogin($username, sha1($password));
+        }
+        die("Az egyik mező üres!");
+    }
+
+    public function clientRegister(){
+        $user = json_decode(file_get_contents('php://input'));    
+        $username = $user->{'username'};
+        $password = $user->{'password'};
+        $email = $user->{'Email'};
+        if(!empty($username) && !empty($password) && !empty($email))
+        {  
+            return $this->model->postClientRegister($username, $email, sha1($password));
+        }
+        die("Az egyik mező üres!");
+    }
+
+    public function clientSendMessage(){
+        $message = json_decode(file_get_contents('php://input'));
+        $text = $message->{'text'};
+        if(!empty($_SESSION['id']) && !empty($text))
+        {
+            return $this->model->sendClientMessages($_SESSION['id'], $text);
+        }
+        die("Üres szöveges mező!");
+    }
+
 }
 
