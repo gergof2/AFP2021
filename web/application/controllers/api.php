@@ -34,6 +34,7 @@ class Api extends Controller {
             $result =  $this->model->getLogin($_POST['username'], $_POST['password']);
             if (isset($result['username'])) {
                 $_SESSION['username'] = $result['username'];
+                $_SESSION['id'] = $result['id'];
                 $this->redirect('/message');
             } else {
                 $_SESSION['message'] = 'Sikertelen bejelentkezés!';
@@ -55,14 +56,15 @@ class Api extends Controller {
              
         if(!empty($_POST['username']) && !empty($_POST['password'] && !empty($_POST['email'])))
         {
-            return $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']), true);
+            $data = $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']));           
+             return $this->load_view('home/login',$data);
         }
         $username = $user->{'username'};
         $password = $user->{'password'};
         $email = $user->{'Email'};
         if(!empty($username) && !empty($password) && !empty($email))
         {  
-            return $this->model->postRegister($username, $email, sha1($password), false);
+            return $this->model->postRegister($username, $email, sha1($password));
         }
         die("Az egyik mező üres!");
         
@@ -70,10 +72,13 @@ class Api extends Controller {
 
     public function sendmessages(){
         $message = json_decode(file_get_contents('php://input'));
-        if(!empty($_SESSION['id']) && !empty($_POST['text']))
-        {
-             return $this->model->sendMessages($_SESSION['id'], $_POST['text'], true);
-        }
+
+         if(!empty($_SESSION['username']))
+         {
+            $this->model->sendMessages($_SESSION['id'], $_POST['message'], true);
+            $data = $this->model->getMessages();      
+            return $this->load_view('home/message',$data);
+         }
         $text = $message->{'text'};
         if(!empty($_SESSION['id']) && !empty($text))
         {

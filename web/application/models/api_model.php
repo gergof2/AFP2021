@@ -3,18 +3,18 @@ class api_model extends Model {
 
 	public function getLogin($username, $password) {
         $query = "SELECT * FROM user WHERE username = :username AND password = :password";
-        $query_params = array( 
+        $query_params = array(         
             ':username' => $username,
             ':password' => sha1($password)
         ); 
         try
-        {
+        {           
             return $this->getRecord($query, $query_params);
         }
         catch(PDOException $ex) 
-        {
+        {           
             return $ex->getMessage();
-        }
+        }        
     }
 
     public function getClientLogin($username, $password) {
@@ -39,7 +39,7 @@ class api_model extends Model {
         echo $_SESSION['id'];
     }
 
-    public function postRegister($username, $email, $password, $place){
+    public function postRegister($username, $email, $password){
         $query =
         "INSERT INTO user (username, email, password, registerdate, statusid) VALUES(:username, :email, :password, NOW(), 1)";
         $query_params = array( 
@@ -50,18 +50,13 @@ class api_model extends Model {
         try
         {
             $result = $this->executeDML($query, $query_params);
+            echo("Sikeres Regisztráció!"); 
         }
         catch(PDOException $ex) 
         { 
             die("Sikertelen regisztráció: " . $ex->getMessage()); 
         } 
-        if($place == true){
-            require_once 'application/views/template/header.php';
-            require_once 'application/views/home/login.php';
-            require_once 'application/views/template/footer.php';
-            //szunyinak a kiiratás!
-        }
-        else echo("Sikeres Regisztráció!"); 
+        
 
     }
 
@@ -79,11 +74,11 @@ class api_model extends Model {
         { 
             die("Üzenet elküldése sikertelen: " . $ex->getMessage()); 
         } 
-        if($place == true){
-            require_once 'application/views/template/header.php';
-            //require_once 'application/views/home/login.php';
-            require_once 'application/views/template/footer.php';
-            //szunyi a kiiratás!          
+        if($place == true){         
+            // require_once 'application/views/template/header.php';
+            // require_once 'application/views/home/message.php';
+            // require_once 'application/views/template/footer.php';
+            // //szunyi a kiiratás!          
         }
         else echo("Üzenet elküldve!"); 
     }
@@ -112,7 +107,7 @@ class api_model extends Model {
 
     public function getMessages(){
         //$query = "SELECT * FROM `messages`";
-	    $query = "SELECT messages.id, username, text, timedate FROM messages INNER JOIN user ON messages.userid = user.id ORDER BY messages.id LIMIT 0,10";
+	    $query = "SELECT messages.id, username, text, timedate FROM messages INNER JOIN user ON messages.userid = user.id ORDER BY messages.id";
         $result = $this->getList($query);
         if($result == null)
         {

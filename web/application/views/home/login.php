@@ -13,6 +13,5 @@
 		<button class="button mycolor" type="submit" name="login_user">Log In</button>
 
 		<p>Not a user? <a href="/registration"><b>Register Here</b></a></p>
-		<?=$_SESSION['message']?>
 	</form>
 </div>

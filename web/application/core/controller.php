@@ -14,7 +14,10 @@ class Controller {
     public function load_view($view, $data = []) {
         require_once 'application/views/template/header.php';
         require_once 'application/views/'.$view.'.php';
-        require_once 'application/views/template/footer.php';
+        if ( empty($_SESSION['username'])) {
+            require_once 'application/views/template/footer.php';
+        }
+        
     }
     
     public function redirect($url) {

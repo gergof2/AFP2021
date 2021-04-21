@@ -41,6 +41,7 @@
                   </li>
                   <li class="nav-item">
                       <div><?=$_SESSION['username']?></div>
+                      <div><?=$_SESSION['id']?></div>
                   </li>
               <?php else: ?>
                   <li class="nav-item">
