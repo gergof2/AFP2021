@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Timber"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="392" Width="349.333">
+        Title="LoginWindow" ResizeMode="CanMinimize" Height="392" Width="349.333">
     <Grid>
-        <TextBox x:Name="usernameBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="108,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="passwordBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="108,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox x:Name="usernameBox" KeyDown="EnterPress" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="108,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox x:Name="passwordBox" KeyDown="EnterPress" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="108,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
         <Button x:Name="button" Content="Log in" HorizontalAlignment="Left" Margin="108,309,0,0" VerticalAlignment="Top" Width="75" Click="LoginButtonClick" Height="33"/>
         <Button x:Name="button1" Content="Create Account" HorizontalAlignment="Left" Margin="188,309,0,0" VerticalAlignment="Top" Width="107" Click="OpenRegisterWindow" Height="33"/>
         <Label x:Name="label" Content="Username:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,245,0,0" Width="66"/>

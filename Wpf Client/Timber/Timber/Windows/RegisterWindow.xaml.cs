@@ -46,7 +46,7 @@ namespace Timber
             var json = JsonConvert.SerializeObject(user);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var url = "http://localhost/api/register";
+            var url = "http://localhost/api/clientRegister";
             var response = await client.PostAsync(url, data);
 
             string result = response.Content.ReadAsStringAsync().Result;

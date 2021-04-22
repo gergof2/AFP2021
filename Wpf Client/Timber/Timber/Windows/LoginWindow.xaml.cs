@@ -42,7 +42,7 @@ namespace Timber
             {
                 OpenMainWindow();
             }
-
+            else MessageBox.Show("Hibás felhasználónév vagy jelszó!");
         }
 
         private void OpenMainWindow()
@@ -71,7 +71,6 @@ namespace Timber
             if (user.username == null || user.username == "" || user.password == null || user.password == "")
             {
                 MessageBox.Show("Üres az egyik mező!");
-                return null;
             }
             else
             {
@@ -86,16 +85,27 @@ namespace Timber
                 string result = response.Content.ReadAsStringAsync().Result;
                 if (result != "Sikertelen belépés! Nincs ilyen felhasználó!")
                 {
-                    MessageBox.Show("Sikeres belépés!");
+                    //MessageBox.Show("Sikeres belépés!");
                     this.SessionId = int.Parse(result);
                     //MessageBox.Show($"Session Id: {SessionId}");
-                    return user;
                 }
-                else MessageBox.Show(result);
-                return null;
             }
+            return null;
         }
 
+        private async void EnterPress(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                loggedInUser = new User(usernameBox.Text, passwordBox.Text);
+                await Login();
+                if (SessionId != -1)
+                {
+                    OpenMainWindow();
+                }
+                else MessageBox.Show("Hibás felhasználónév vagy jelszó!");
+            }
+        }
 
     }
 }

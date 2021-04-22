@@ -56,13 +56,11 @@ namespace Timber
             Message newMessage = new Message(username, textBox.Text, DateTime.Now);
             var json = JsonConvert.SerializeObject(newMessage);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var url = "http://localhost/api/sendmessages";
+            var url = "http://localhost/api/clientSendMessage";
             var response = await client.PostAsync(url, data);
 
-            string result = response.Content.ReadAsStringAsync().Result;
-
-            MessageBox.Show(result);
-
+            textBox.Text = "";
+            GetMessages();
         }
         #endregion
 
