@@ -19,6 +19,7 @@ public:
 	wxTextCtrl* passwordTb = nullptr;
 
 	void loginButtonClick(wxCommandEvent& evt);
+	void registerButtonClick(wxCommandEvent& evt);
 	wxDECLARE_EVENT_TABLE();
 };
 
