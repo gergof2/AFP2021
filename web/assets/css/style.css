@@ -54,14 +54,14 @@ footer{
 	background-color: #18181a;
 }
 .footer > * {
-	flex: 1 100%;
+	flex: 1 30%;
+
 }
-.footer-left{
-	margin-right: 1.25em;
-	margin-bottom: 2em;
+.footer-left{	
+	margin-bottom: 8em;
 }
 .footer-left img{
-	width: 23%;
+	width: 50%;
 }
 h2{
 	font-weight: 600;
@@ -86,8 +86,8 @@ h2{
 	flex-flow: row wrap;
 }
 .footer-right > * {
-	flex: 1 50%;
-	margin-right: 1.25em;
+	flex: 1 25%;
+	margin-right: 1.30em;
 }
 .box a {
 	color: #999;
