@@ -23,7 +23,7 @@
 		</li>
 		<li> <!-- fourth element -->
 			<h2>Creators</h2>
-			<ul class="Box">
+			<ul class="box">
 				<li><a href="#">© Horvát Dániel </a></li>
 				<li><a href="#">© Kerepesi Gergő  </a></li>
 				<li><a href="#">© Seres Péter </a></li>
