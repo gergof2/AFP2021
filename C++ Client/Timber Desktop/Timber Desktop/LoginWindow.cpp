@@ -37,6 +37,17 @@ void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 		cpr::Body{ myJson.dump() },
 		cpr::Header{ {"content-type", "application/json"} });
 
+	if (isdigit(r.text[0]))
+	{
+		Hide();
+		int sessionId = std::stoi(r.text);
+		mainWindow = new MainWindow(sessionId);
+	}
+
+	else
+	{
+		wxMessageBox("Invalid username or password.");
+	}
 	
 
 	evt.Skip();
