@@ -1,3 +1,4 @@
+</body>
 <footer class="footer">
 	<div class="footer-left"> <!-- first element -->
 		<img src="/assets/vendor/images/large.png">	<!-- picture -->	
@@ -37,6 +38,6 @@
 </footer>
 
 
-</body>
+
 </html>
 
