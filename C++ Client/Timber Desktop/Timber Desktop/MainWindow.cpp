@@ -4,3 +4,7 @@ MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Deskt
 {
 	this->SetBackgroundColour(wxColor(*wxWHITE));
 }
+
+MainWindow::~MainWindow()
+{
+}
