@@ -33,6 +33,10 @@ void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 		{"password", password },
 	};
 
+	cpr::Response r = cpr::Post(cpr::Url{ "http://localhost/api/login" },
+		cpr::Body{ myJson.dump() },
+		cpr::Header{ {"content-type", "application/json"} });
+
 	
 
 	evt.Skip();
