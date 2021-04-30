@@ -1,4 +1,8 @@
 #include "MainWindow.h"
+#include "cpr/cpr.h"
+#include "nlohmann/json.hpp"
+#include <vector>
+#include <string>
 
 wxBEGIN_EVENT_TABLE(MainWindow, wxFrame)
 	EVT_BUTTON(10001, ButtonClick)
