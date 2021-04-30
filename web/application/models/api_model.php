@@ -41,25 +41,7 @@ class api_model extends Model {
 #--------------------------Ideas-----------------------------------------------    
 
     public function statusChange($userid, $statusid){
-        if($statusid < 1 || $statusid > 4){
-            die("Nincs ilyen státusz id!");
-        }
-        else{
-            $query = "UPDATE `user` SET `statusid` = :statusid WHERE `id` = :userid";
-            $query_params = array( 
-            ':statusid' => $statusid,
-            ':userid' => $_SESSION['id']
-            );  
-            try
-            {
-                $result = $this->executeDML($query, $query_params);
-            }
-            catch(PDOException $ex) 
-            { 
-                die("Státusz átállítás sikertelen: " . $ex->getMessage()); 
-            } 
-            die("Státusz átállítás sikeres!"); 
-        }
+        
     }
 
     public function deleteMessage($id){

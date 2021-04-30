@@ -67,14 +67,7 @@ class Api extends Controller {
     }
 
     public function statuschange(){
-        if(empty($_SESSION['id']) || empty($_POST['statusid']))
-        {
-            die("Az egyik mező üres!");
-        }
-        else
-        {
-            return $this->model->statusChange($_SESSION['id'], $_POST['statusid']);
-        }
+        
     }
 
 #--------------------------Universal---------------------------------------------
