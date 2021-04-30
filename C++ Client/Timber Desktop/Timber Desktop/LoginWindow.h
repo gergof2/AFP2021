@@ -3,7 +3,7 @@
 #include "wx/wx.h"
 #include "MainWindow.h"
 
-class LoginWindow : wxFrame
+class LoginWindow : public wxFrame
 {
 public:
 	LoginWindow();
