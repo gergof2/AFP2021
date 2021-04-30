@@ -1,7 +1,7 @@
 <div class="title mycolor">
 	<h2>Register</h2>
 </div>
-<div class="mycolor center">
+<div class="mycolor center" style="height: 30em">
 	<form action="api/register" method="post">
 		<div >
 			<input class="input" type="text" name="username" required placeholder="Username">
