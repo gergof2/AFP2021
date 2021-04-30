@@ -19,3 +19,12 @@ LoginWindow::LoginWindow() : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoin
 }
 
 LoginWindow::~LoginWindow()
+{
+
+}
+
+void LoginWindow::loginButtonClick(wxCommandEvent& evt)
+{
+	evt.Skip();
+}
+
