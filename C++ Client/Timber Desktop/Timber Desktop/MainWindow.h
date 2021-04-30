@@ -16,6 +16,7 @@ public:
 
 	int sessionId;
 
-	
+	void ButtonClick(wxCommandEvent& evt);
+	void drawMessages();
 };
 
