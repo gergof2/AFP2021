@@ -23,6 +23,20 @@
 	color: #6A1B4D;
 	font-size: 130%;	
 }
+*,*:before,*:after{
+	box-sizing: border-box;
+}
+footer{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-flow: row wrap;
+	padding: 50px;
+	color: #fff;
+
+}
 
 .input {
   width: 315px;
