@@ -18,5 +18,7 @@ public:
 
 	void ButtonClick(wxCommandEvent& evt);
 	void drawMessages();
+
+	wxDECLARE_EVENT_TABLE();
 };
 
