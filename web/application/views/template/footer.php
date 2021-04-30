@@ -23,10 +23,13 @@
 		</li>
 		<li> <!-- fourth element -->
 			<h2>Creators</h2>
-			<li><a href="#">© Horvát Dániel </a></li>
-			<li><a href="#">© Kerepesi Gergő  </a></li>
-			<li><a href="#">© Seres Péter </a></li>
-			<li><a href="#">© Szalóki Dávid  </a></li>
+			<ul class="Box">
+				<li><a href="#">© Horvát Dániel </a></li>
+				<li><a href="#">© Kerepesi Gergő  </a></li>
+				<li><a href="#">© Seres Péter </a></li>
+				<li><a href="#">© Szalóki Dávid  </a></li>
+			</ul>
+
 		</li>
 
 	</ul>
