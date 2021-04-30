@@ -16,6 +16,13 @@ struct MessageStruct
 	std::string timedate;
 };
 
+void from_json(const nlohmann::json& j, MessageStruct& msg)
+{
+	j.at("username").get_to(msg.username);
+	j.at("text").get_to(msg.text);
+	j.at("id").get_to(msg.id);
+	j.at("timedate").get_to(msg.timedate);
+}
 void MainWindow::ButtonClick(wxCommandEvent& evt)
 {
 	evt.Skip();
