@@ -23,6 +23,16 @@ void from_json(const nlohmann::json& j, MessageStruct& msg)
 	j.at("id").get_to(msg.id);
 	j.at("timedate").get_to(msg.timedate);
 }
+
+vector<MessageStruct> getMessages()
+{
+	cpr::Response r = cpr::Get(cpr::Url{ "http://localhost/api/messages" });
+
+	nlohmann::json myJson = nlohmann::json::parse(r.text);
+	vector<MessageStruct> parsed = myJson.get<vector<MessageStruct>>();
+	return parsed;
+}
+
 void MainWindow::ButtonClick(wxCommandEvent& evt)
 {
 	evt.Skip();
