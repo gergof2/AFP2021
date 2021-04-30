@@ -1,5 +1,12 @@
 #pragma once
-class MainWindow
+
+#include "wx/wx.h"
+
+
+class MainWindow : public wxFrame
 {
+public:
+	MainWindow(int sessionId);
+	~MainWindow();
 };
 
