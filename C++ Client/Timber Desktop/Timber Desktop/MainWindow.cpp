@@ -33,6 +33,18 @@ vector<MessageStruct> getMessages()
 	return parsed;
 }
 
+vector<MessageStruct> messages;
+
+void MainWindow::drawMessages()
+{
+	messages = getMessages();
+	for (MessageStruct message : messages)
+	{
+		messageLb->AppendString(wxString(message.username + ": " + message.text) 
+								+ wxString(message.timedate, wxFONTSIZE_X_SMALL));
+	}
+}
+
 void MainWindow::ButtonClick(wxCommandEvent& evt)
 {
 	evt.Skip();
@@ -45,6 +57,7 @@ MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Deskt
 	sendMsgBtn = new wxButton(this, 10001, "Send Message", wxPoint(10, 490), wxSize(100, 25));
 	messageTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 430), wxSize(710, 50));
 	messageLb = new wxListBox(this, wxID_ANY, wxPoint(10, 10), wxSize(710, 410));
+	getMessages();
 }
 
 MainWindow::~MainWindow()
