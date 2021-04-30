@@ -28,3 +28,7 @@ void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 	evt.Skip();
 }
 
+void LoginWindow::registerButtonClick(wxCommandEvent& evt)
+{
+	evt.Skip();
+}
