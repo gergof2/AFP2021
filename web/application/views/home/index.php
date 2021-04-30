@@ -4,7 +4,7 @@
 		<h2>Welcome this Timber app Homapage</h2>
 </div>
 
-<div class="center text">
+<div class="center text" style="height: 18.19em">
 <p>You wandered to a good place! <br>
 This is the chat app you want! <br>
 We will give you a little help:<br>
