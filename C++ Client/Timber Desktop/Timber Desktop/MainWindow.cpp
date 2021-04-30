@@ -4,10 +4,19 @@ wxBEGIN_EVENT_TABLE(MainWindow, wxFrame)
 	EVT_BUTTON(10001, ButtonClick)
 wxEND_EVENT_TABLE();
 
+struct MessageStruct
+{
+	std::string username;
+	std::string text;
+	std::string id;
+	std::string timedate;
+};
+
 void MainWindow::ButtonClick(wxCommandEvent& evt)
 {
 	evt.Skip();
 }
+
 MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoint(30, 30), wxSize(950, 570))
 {
 	this->SetBackgroundColour(wxColor(*wxWHITE));
