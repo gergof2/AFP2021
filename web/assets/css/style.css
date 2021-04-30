@@ -61,6 +61,14 @@ h2{
 .footer a{
 	text-decoration: none;
 }
+.footer-right{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-flow: row wrap;
+}
 
 
 .input {
