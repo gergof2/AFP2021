@@ -59,15 +59,16 @@ class Api extends Controller {
             return $this->load_view('home/message',$data);
          }
     }
+
+
+    public function statuschange(){
+        $this->model->statusChange($_SESSION['id'], $_POST['statusid']);
+    }
  
 #--------------------------Ideas-----------------------------------------------
 
     public function sendfile(){
 
-    }
-
-    public function statuschange(){
-        
     }
 
 #--------------------------Universal---------------------------------------------
