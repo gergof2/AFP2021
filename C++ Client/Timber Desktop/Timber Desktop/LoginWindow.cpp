@@ -25,6 +25,16 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 {
+	std::string username = (usernameTb->GetValue().ToStdString());
+	std::string password = (usernameTb->GetValue().ToStdString());
+
+	json myJson = json{
+		{"username", username },
+		{"password", password },
+	};
+
+	
+
 	evt.Skip();
 }
 
