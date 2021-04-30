@@ -1,5 +1,7 @@
 #include "App.h"
 
+wxIMPLEMENT_APP(App);
+
 App::App()
 {
 }
@@ -10,5 +12,8 @@ App::~App()
 
 bool App::OnInit()
 {
-	return false;
+	loginWindow = new LoginWindow();
+	loginWindow->Show();
+
+	return true;
 }
