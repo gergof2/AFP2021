@@ -26,6 +26,22 @@
 *,*:before,*:after{
 	box-sizing: border-box;
 }
+body{
+	margin: 0;
+	display: grid;
+}
+main{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 3.8;
+	text-transform: uppercase;
+	font-weight: bold;
+}
 footer{
 	display: -webkit-flex;
 	display: -moz-flex;
