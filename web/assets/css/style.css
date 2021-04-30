@@ -141,8 +141,13 @@
   border-color: #ccc;
   background-color: #eeeee9;
 }
+.messageContainer{
+	height: 80vh ;
+	width: 85vw; 
+	overflow: scroll; 
+}
 
-@media(max-width: 800px){
+@media  screen and (max-width: 1100px){
 	.footer .inner__footer{
 		width: 90%;
 	}
@@ -152,6 +157,7 @@
 		margin-bottom: 30px;
 	}
 }
+
 
 
 
