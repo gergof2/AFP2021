@@ -38,11 +38,20 @@ class api_model extends Model {
         }else echo("Üzenet elküldve!"); 
     }
 
-#--------------------------Ideas-----------------------------------------------    
-
     public function statusChange($userid, $statusid){
-        
+        $query = "UPDATE `user` SET `statusid` = :statusid WHERE `id` = :userid";
+        $query_params = array( 
+        ':statusid' => $statusid,
+        ':userid' => $_SESSION['id']
+        );
+        $result = $this->executeDML($query, $query_params);
+        if (!empty($result)) {
+        echo"Sikertelen státuszállítás: ".$result; 
+        }else echo("Státusz megváltoztatva!"); 
+
     }
+
+#--------------------------Ideas-----------------------------------------------      
 
     public function deleteMessage($id){
         $query = "SELECT `id` FROM messages WHERE `id` = '" . $id . "'";

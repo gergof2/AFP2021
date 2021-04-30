@@ -62,7 +62,10 @@ class Api extends Controller {
 
 
     public function statuschange(){
-        $this->model->statusChange($_SESSION['id'], $_POST['statusid']);
+        if($_POST['statusid'] < 1 || $_POST['statusid'] > 4){
+            die("Nincs ilyen státusz id!");
+        }
+        else $this->model->statusChange($_SESSION['id'], $_POST['statusid']);
     }
  
 #--------------------------Ideas-----------------------------------------------
