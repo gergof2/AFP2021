@@ -26,7 +26,7 @@ LoginWindow::~LoginWindow()
 void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 {
 	std::string username = (usernameTb->GetValue().ToStdString());
-	std::string password = (usernameTb->GetValue().ToStdString());
+	std::string password = (passwordTb->GetValue().ToStdString());
 
 	json myJson = json{
 		{"username", username },
@@ -42,6 +42,7 @@ void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 		Hide();
 		int sessionId = std::stoi(r.text);
 		mainWindow = new MainWindow(sessionId);
+		mainWindow->Show();
 	}
 
 	else
