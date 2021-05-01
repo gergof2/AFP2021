@@ -20,9 +20,9 @@ class api_model extends Model {
         );
         $result = $this->executeDML($query, $query_params);
         if (!empty($result)) {
-            echo "Sikertelen Regisztráció: ".$result;
+            echo "Registration failed: ".$result;
         }else{
-            echo "Sikeres Regisztráció";
+            echo "Successful registration!";
         }  
     }
 
@@ -34,49 +34,40 @@ class api_model extends Model {
         );
         $result = $this->executeDML($query, $query_params);
         if (!empty($result)) {
-            echo"Üzenet elküldése sikertelen: ".$result; 
-        }else echo("Üzenet elküldve!"); 
+            echo"Failed to send message: ".$result; 
+        }else echo("Message sent!"); 
     }
-
-#--------------------------Ideas-----------------------------------------------    
 
     public function statusChange($userid, $statusid){
-        if($statusid < 1 || $statusid > 4){
-            die("Nincs ilyen státusz id!");
-        }
-        else{
-            $query = "UPDATE `user` SET `statusid` = :statusid WHERE `id` = :userid";
-            $query_params = array( 
-            ':statusid' => $statusid,
-            ':userid' => $_SESSION['id']
-            );  
-            try
-            {
-                $result = $this->executeDML($query, $query_params);
-            }
-            catch(PDOException $ex) 
-            { 
-                die("Státusz átállítás sikertelen: " . $ex->getMessage()); 
-            } 
-            die("Státusz átállítás sikeres!"); 
-        }
+        $query = "UPDATE `user` SET `statusid` = :statusid WHERE `id` = :userid";
+        $query_params = array( 
+        ':statusid' => $statusid,
+        ':userid' => $_SESSION['id']
+        );
+        $result = $this->executeDML($query, $query_params);
+        if (!empty($result)) {
+        echo"Failed status statement: ".$result; 
+        }else echo("Status changed!"); 
+
     }
+
+#--------------------------Ideas-----------------------------------------------      
 
     public function deleteMessage($id){
         $query = "SELECT `id` FROM messages WHERE `id` = '" . $id . "'";
         $res = $this->getList($query);
         if($res == null)
         {
-            echo "Nincs üzenet az adott id-n";
+            echo "";
         }
         else{
             $query2 = "DELETE FROM `messages` WHERE `id` = '" . $id . "'";
             $result = $this->executeDML($query2);
             if(!$result){
-                echo "Üzenet törlése sikeres volt!";
+                echo "!";
             }
             else{
-                echo "Üzenet törlése sikertelen!";
+                echo "!";
             }
         }
 
@@ -90,7 +81,7 @@ class api_model extends Model {
         $result = $this->getList($query);
         if($result == null)
         {
-            die("Nincs üzenet!");
+            die("No messages!");
         }
         else {
             return $result;
@@ -111,11 +102,11 @@ class api_model extends Model {
         }
         catch(PDOException $ex) 
         { 
-            die("Sikertelen belépés " . $ex->getMessage()); 
+            die("Login failed " . $ex->getMessage()); 
         } 
         if(empty($result))
         {
-            die("Sikertelen belépés! Nincs ilyen felhasználó!");
+            die("Login failed! No such user!");
         }
         else{
             $_SESSION['id'] = $result[0];
@@ -133,7 +124,7 @@ class api_model extends Model {
         );
         $result = $this->executeDML($query, $query_params);
         if($result == null){
-            echo "Sikeres regisztráció!";
+            echo "Successful registration!";
         }
         else echo $result;
     }
@@ -150,9 +141,9 @@ class api_model extends Model {
         }
         catch(PDOException $ex) 
         { 
-            die("Üzenet elküldése sikertelen: " . $ex->getMessage()); 
+            die("Failed to send message: " . $ex->getMessage()); 
         }
-        echo("Üzenet elküldve!"); 
+        echo("Message sent!"); 
     }
 
 }
