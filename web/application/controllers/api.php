@@ -34,7 +34,7 @@ class Api extends Controller {
                 $_SESSION['id'] = $result['id'];
                 $this->redirect('/message');
             } else {
-                $_SESSION['message'] = 'Sikertelen bejelentkezés!';
+                $_SESSION['message'] = 'Login failed!';
                 $this->redirect('/login');
             }
         }
@@ -63,7 +63,7 @@ class Api extends Controller {
 
     public function statuschange(){
         if($_POST['statusid'] < 1 || $_POST['statusid'] > 4){
-            die("Nincs ilyen státusz id!");
+            die("There is no status id!");
         }
         else $this->model->statusChange($_SESSION['id'], $_POST['statusid']);
     }
@@ -92,7 +92,7 @@ class Api extends Controller {
         {             
             return $this->model->getClientLogin($username, sha1($password));
         }
-        die("Az egyik mező üres!");
+        die("One of the fields is empty!");
     }
 
     public function clientRegister(){
@@ -104,7 +104,7 @@ class Api extends Controller {
         {  
             return $this->model->postClientRegister($username, $email, sha1($password));
         }
-        die("Az egyik mező üres!");
+        die("One of the fields is empty!");
     }
 
     public function clientSendMessage(){
@@ -114,7 +114,7 @@ class Api extends Controller {
         {
             return $this->model->sendClientMessages($_SESSION['id'], $text);
         }
-        die("Üres szöveges mező!");
+        die("Empty text field!");
     }
 
 }
