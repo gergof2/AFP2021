@@ -39,7 +39,7 @@ void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 
 	if (isdigit(r.text[0]))
 	{
-		Hide();
+		Close();
 		int sessionId = std::stoi(r.text);
 		mainWindow = new MainWindow(sessionId);
 		mainWindow->Show();
