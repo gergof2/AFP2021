@@ -40,8 +40,6 @@ void MainWindow::drawMessages()
 	messages = getMessages();
 	for (MessageStruct message : messages)
 	{
-		messageLb->AppendString(wxString(message.username + ": " + message.text) 
-								+ wxString(message.timedate, wxFONTSIZE_X_SMALL));
 		wxString text = message.text;
 		wxString date = message.timedate;
 		wxString user = message.username;
