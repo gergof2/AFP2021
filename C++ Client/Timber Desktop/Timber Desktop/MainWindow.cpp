@@ -52,6 +52,12 @@ void MainWindow::drawMessages()
 
 void MainWindow::ButtonClick(wxCommandEvent& evt)
 {
+	string text = messageTb->GetValue().ToStdString();
+	json myJson = json{
+		{"userid", sessionId},
+		{"text", text}
+	};
+	wxMessageBox(myJson.dump());
 	evt.Skip();
 }
 
