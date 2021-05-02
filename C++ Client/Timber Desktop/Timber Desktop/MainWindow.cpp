@@ -2,6 +2,8 @@
 #include "cpr/cpr.h"
 #include "nlohmann/json.hpp"
 
+#include <future>
+using namespace nlohmann;
 using namespace std;
 
 wxBEGIN_EVENT_TABLE(MainWindow, wxFrame)
