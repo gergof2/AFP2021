@@ -117,5 +117,9 @@ class Api extends Controller {
         die("Empty text field!");
     }
 
+    public function clientStatusChange(){
+        
+    }
+
 }
 
