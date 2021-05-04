@@ -147,7 +147,20 @@ class api_model extends Model {
     }
 
     public function sendClientStatusChange($userid, $statusid){
-        
+        $query = "UPDATE `user` SET `statusid` = :statusid WHERE `id` = :userid";
+        $query_params = array(
+            ':userid' => $_SESSION['id'],
+            ':statusid' => $status
+        );
+        try
+        {
+            $result = $this->executeDML($query, $query_params);
+        }
+        catch(PDOException $ex)
+        {
+            die("Failed to change status: " . $ex->getMessage());
+        }
+        echo("Status successful changed!");
     }
 
 }
