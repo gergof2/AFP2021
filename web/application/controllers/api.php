@@ -118,7 +118,11 @@ class Api extends Controller {
     }
 
     public function clientStatusChange(){
-        
+        if(!empty($_SESSION['id']) && !empty($status))
+        {
+            return $this->model->sendClientStatusChange($_SESSION['id'], $status);
+        }
+        die();
     }
 
 }
