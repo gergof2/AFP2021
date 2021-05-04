@@ -118,13 +118,14 @@ class Api extends Controller {
     }
 
     public function clientStatusChange(){
-        $statusID = json_decode(file_get_contents('php://input'));
-        $status = $statusID->{'statusid'};
+        $json = json_decode(file_get_contents('php://input'));
+        $status = $json->{'statusId'};
+        $_SESSION['id'] = $json->{'sessionId'};
         if(!empty($_SESSION['id']) && !empty($status))
         {
             return $this->model->sendClientStatusChange($_SESSION['id'], $status);
         }
-        die();
+        echo();
     }
 
 }
