@@ -146,4 +146,8 @@ class api_model extends Model {
         echo("Message sent!"); 
     }
 
+    public function sendClientStatusChange($userid, $statusid){
+        
+    }
+
 }
