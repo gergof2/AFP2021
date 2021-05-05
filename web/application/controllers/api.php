@@ -67,6 +67,10 @@ class Api extends Controller {
         }
         else $this->model->statusChange($_SESSION['id'], $_POST['statusid']);
     }
+
+    public function getUsers(){
+        
+    }
  
 #--------------------------Ideas-----------------------------------------------
 
