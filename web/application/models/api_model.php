@@ -51,6 +51,10 @@ class api_model extends Model {
 
     }
 
+    public function getUsers(){
+        
+    }
+
 #--------------------------Ideas-----------------------------------------------      
 
     public function deleteMessage($id){
