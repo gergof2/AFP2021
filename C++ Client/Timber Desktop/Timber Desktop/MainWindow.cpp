@@ -38,8 +38,15 @@ vector<MessageStruct> messages;
 
 void MainWindow::drawMessages()
 {
-	messages = getMessages();
-	for (MessageStruct message : messages)
+	vector<MessageStruct> olderMessages = getMessages();
+	for (MessageStruct message : olderMessages)
+	{
+		
+		messages.push_back(message);
+	}
+
+	messageLb->Clear();
+	for (MessageStruct message : olderMessages)
 	{
 		wxString text = message.text;
 		wxString date = message.timedate;
@@ -54,6 +61,7 @@ void MainWindow::ConstantRefresh()
 	while (true)
 	{
 		MainWindow::drawMessages();
+		std::this_thread::sleep_for(std::chrono::seconds(2));
 	}
 }
 
