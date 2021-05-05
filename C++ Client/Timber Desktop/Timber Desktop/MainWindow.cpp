@@ -47,6 +47,22 @@ void MainWindow::drawMessages()
 		wxString user = message.username;
 
 		messageLb->AppendString(user + ": " + text + "   " + date);
+		
+		//messageLb->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, true));
+		//messageLb->GetItem(3)->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, true));
+		//messageLb->AppendString();
+	}
+	//messageLb->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, true));
+	//messageLb->GetItem(2)->SetBackgroundColour(wxColor(*wxRED));
+}
+
+void MainWindow::ConstantRefresh()
+{
+	while (true)
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(200));
+		MainWindow::drawMessages();
+		messageLb->AppendString("---");
 	}
 }
 
@@ -64,6 +80,8 @@ void MainWindow::ButtonClick(wxCommandEvent& evt)
 	wxMessageBox(r.text);
 	evt.Skip();
 }
+
+
 
 MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoint(30, 30), wxSize(950, 570))
 {
