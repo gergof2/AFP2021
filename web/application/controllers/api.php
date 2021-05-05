@@ -69,7 +69,7 @@ class Api extends Controller {
     }
 
     public function getusers(){
-
+        return $this->model->getUsers();
     }
  
 #--------------------------Ideas-----------------------------------------------
