@@ -69,7 +69,9 @@ class Api extends Controller {
     }
 
     public function getusers(){
-        return $this->model->getUsers();
+        $response = $this->model->getUsers();
+        $out = array_values($response);
+        echo json_encode($out);    
     }
  
 #--------------------------Ideas-----------------------------------------------
@@ -129,7 +131,7 @@ class Api extends Controller {
         {
             return $this->model->sendClientStatusChange($_SESSION['id'], $status);
         }
-        echo();
+        echo "Problem";
     }
 
 }
