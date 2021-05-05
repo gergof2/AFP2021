@@ -46,13 +46,7 @@ void MainWindow::drawMessages()
 		wxString user = message.username;
 
 		messageLb->AppendString(user + ": " + text + "   " + date);
-		
-		//messageLb->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, true));
-		//messageLb->GetItem(3)->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, true));
-		//messageLb->AppendString();
 	}
-	//messageLb->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, true));
-	//messageLb->GetItem(2)->SetBackgroundColour(wxColor(*wxRED));
 }
 
 void MainWindow::ConstantRefresh()
