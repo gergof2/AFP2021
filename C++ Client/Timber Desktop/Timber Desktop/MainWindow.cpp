@@ -53,7 +53,6 @@ void MainWindow::ConstantRefresh()
 {
 	while (true)
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(200));
 		MainWindow::drawMessages();
 		messageLb->AppendString("---");
 	}
