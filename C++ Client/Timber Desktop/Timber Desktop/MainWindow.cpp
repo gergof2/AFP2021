@@ -90,7 +90,10 @@ MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Deskt
 	sendMsgBtn = new wxButton(this, 10001, "Send Message", wxPoint(10, 490), wxSize(100, 25));
 	messageTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 430), wxSize(710, 50));
 	messageLb = new wxListBox(this, wxID_ANY, wxPoint(10, 10), wxSize(710, 410));
-	drawMessages();
+	//auto future = std::async(launch::async, std::bind(&MainWindow::ConstantRefresh, this));
+	int i = 2;
+	//std::thread t(MainWindow::ConstantRefresh(), i);
+	t = new std::thread(&MainWindow::ConstantRefresh, this);
 }
 
 MainWindow::~MainWindow()
