@@ -1,8 +1,7 @@
 #include "MainWindow.h"
 #include "cpr/cpr.h"
 #include "nlohmann/json.hpp"
-
-#include <future>
+#include <thread>
 using namespace nlohmann;
 using namespace std;
 
