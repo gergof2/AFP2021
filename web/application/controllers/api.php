@@ -63,7 +63,7 @@ class Api extends Controller {
 
     public function statuschange(){
         if($_POST['statusid'] < 1 || $_POST['statusid'] > 4){
-            die("There is no status id!");
+            echo("There is no status id!");
         }
         else $this->model->statusChange($_SESSION['id'], $_POST['statusid']);
     }
@@ -115,6 +115,17 @@ class Api extends Controller {
             return $this->model->sendClientMessages($_SESSION['id'], $text);
         }
         die("Empty text field!");
+    }
+
+    public function clientStatusChange(){
+        $json = json_decode(file_get_contents('php://input'));
+        $status = $json->{'statusId'};
+        $_SESSION['id'] = $json->{'sessionId'};
+        if(!empty($_SESSION['id']) && !empty($status))
+        {
+            return $this->model->sendClientStatusChange($_SESSION['id'], $status);
+        }
+        echo();
     }
 
 }
