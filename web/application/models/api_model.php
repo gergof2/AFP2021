@@ -51,6 +51,12 @@ class api_model extends Model {
 
     }
 
+    public function getUsers(){
+        $query = "SELECT username, statusid from user";
+        $result = $this->getList($query);
+        return $result;
+    }
+
 #--------------------------Ideas-----------------------------------------------      
 
     public function deleteMessage($id){
