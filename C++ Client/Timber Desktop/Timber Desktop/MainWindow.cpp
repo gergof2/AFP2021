@@ -54,7 +54,6 @@ void MainWindow::ConstantRefresh()
 	while (true)
 	{
 		MainWindow::drawMessages();
-		messageLb->AppendString("---");
 	}
 }
 
