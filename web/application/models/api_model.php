@@ -171,6 +171,7 @@ class api_model extends Model {
 
     public function ClientGetUsers(){
         $query = "SELECT username, statusid from user";
+        $result = $this->getList($query);
     }
 
 }
