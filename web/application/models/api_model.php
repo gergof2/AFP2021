@@ -169,4 +169,10 @@ class api_model extends Model {
         echo("Status successful changed!");
     }
 
+    public function ClientGetUsers(){
+        $query = "SELECT username, statusid from user";
+        $result = $this->getList($query);
+        return $result;
+    }
+
 }
