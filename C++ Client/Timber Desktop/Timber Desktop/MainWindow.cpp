@@ -71,7 +71,7 @@ void MainWindow::drawMessages()
 	}
 }
 
-void MainWindow::ConstantRefresh()
+void MainWindow::constantRefreshMessages()
 {
 	while (true)
 	{
