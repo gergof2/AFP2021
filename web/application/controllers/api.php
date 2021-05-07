@@ -134,5 +134,9 @@ class Api extends Controller {
         echo "Problem";
     }
 
+    public function clientGetUsers(){
+        
+    }
+
 }
 
