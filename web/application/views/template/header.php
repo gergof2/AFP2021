@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<?php if (empty($_SESSION['data-theme'])) {
+  $_SESSION['data-theme'] ='light';
+}  ?>
+<html lang="en" data-theme="<?=$_SESSION['data-theme']?>">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
