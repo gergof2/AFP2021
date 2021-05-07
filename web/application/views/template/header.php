@@ -69,4 +69,35 @@
         </div>
       </div>
     </nav>
+    <script>
+      var checkbox = document.querySelector('input[name=theme]');
+      checkbox.addEventListener('change', function(){
+        if (this.checked) {
+          trans();
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.getElementById("nav").setAttribute('data-theme', 'dark');
+          document.getElementById("body").setAttribute('data-theme', 'dark');
+          document.getElementById("color").setAttribute('data-theme', 'dark');                 
+          fetch('dataTheme?theme=dark') 
+
+            
+        }else {
+          trans();
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.getElementById("nav").setAttribute('data-theme', 'light');
+          document.getElementById("body").setAttribute('data-theme', 'light');
+          document.getElementById("color").setAttribute('data-theme', 'light');
+          fetch('dataTheme?theme=light')          
+        } 
+        setTimeout(function(){location.reload()}, 10);
+      })
+
+
+      let trans = () => {
+        document.documentElement.classList.add('transition');
+        window.setTimeout(() => {
+          document.documentElement.classList.remove('transition')
+        }, 1000 )
+      }
+    </script>
 </header>
