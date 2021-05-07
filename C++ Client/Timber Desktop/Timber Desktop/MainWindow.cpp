@@ -45,7 +45,6 @@ void MainWindow::drawMessages()
 		messages.push_back(message);
 	}
 
-	messageLb->Clear();
 	for (MessageStruct message : olderMessages)
 	{
 		wxString text = message.text;
