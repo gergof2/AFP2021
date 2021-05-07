@@ -18,7 +18,15 @@ struct MessageStruct
 	std::string id;
 	std::string timedate;
 };
+struct UserStruct {
+	std::string username;
+	std::string id;
+	std::string email;
+	std::string registerdate;
+	std::string statusid;
+};
 vector<MessageStruct> messages;
+vector<UserStruct> users;
 vector<int> drawnOutMessages;
 
 #pragma endregion
