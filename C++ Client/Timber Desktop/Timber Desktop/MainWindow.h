@@ -23,6 +23,7 @@ public:
 	void drawMessages();
 	void constantRefreshMessages();
 	void drawUsers();
+	void constantRefreshUsers();
 	
 	
 
