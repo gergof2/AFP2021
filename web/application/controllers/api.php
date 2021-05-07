@@ -136,6 +136,7 @@ class Api extends Controller {
 
     public function clientGetUsers(){
         $response = $this->model->ClientGetUsers();
+        $out = array_values($response);
     }
 
 }
