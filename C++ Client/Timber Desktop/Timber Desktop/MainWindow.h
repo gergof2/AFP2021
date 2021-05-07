@@ -16,6 +16,7 @@ public:
 	wxListBox* messageLb = nullptr;
 	wxListBox* userLb = nullptr;
 	std::thread* messageThread = nullptr;
+	std::thread* userThread = nullptr;
 	int sessionId;
 
 public:
