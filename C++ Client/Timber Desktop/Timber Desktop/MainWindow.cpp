@@ -148,7 +148,7 @@ MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Deskt
 	//auto future = std::async(launch::async, std::bind(&MainWindow::ConstantRefresh, this));
 	int i = 2;
 	//std::thread t(MainWindow::ConstantRefresh(), i);
-	t = new std::thread(&MainWindow::ConstantRefresh, this);
+	messageThread = new std::thread(&MainWindow::constantRefreshMessages, this);
 }
 
 MainWindow::~MainWindow()
