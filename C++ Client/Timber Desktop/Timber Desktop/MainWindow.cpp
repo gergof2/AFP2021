@@ -11,8 +11,6 @@ wxBEGIN_EVENT_TABLE(MainWindow, wxFrame)
 EVT_BUTTON(10001, postMessage)
 wxEND_EVENT_TABLE();
 
-vector<MessageStruct> messages;
-vector<int> drawnOutMessages;
 struct MessageStruct
 {
 	std::string username;
@@ -20,6 +18,8 @@ struct MessageStruct
 	std::string id;
 	std::string timedate;
 };
+vector<MessageStruct> messages;
+vector<int> drawnOutMessages;
 
 #pragma endregion
 
