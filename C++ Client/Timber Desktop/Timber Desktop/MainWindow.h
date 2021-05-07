@@ -14,13 +14,18 @@ public:
 	wxButton* sendMsgBtn = nullptr;
 	wxTextCtrl* messageTb = nullptr;
 	wxListBox* messageLb = nullptr;
-	std::thread* t = nullptr;
+	wxListBox* userLb = nullptr;
+	std::thread* messageThread = nullptr;
+	std::thread* userThread = nullptr;
 	int sessionId;
 
 public:
-	void ButtonClick(wxCommandEvent& evt);
+	void postMessage(wxCommandEvent& evt);
 	void drawMessages();
-	void ConstantRefresh();
+	void constantRefreshMessages();
+	void drawUsers();
+	void constantRefreshUsers();
+	
 	
 
 	wxDECLARE_EVENT_TABLE();
