@@ -6,7 +6,7 @@ using namespace nlohmann;
 using namespace std;
 
 wxBEGIN_EVENT_TABLE(MainWindow, wxFrame)
-	EVT_BUTTON(10001, ButtonClick)
+EVT_BUTTON(10001, ButtonClick)
 wxEND_EVENT_TABLE();
 
 struct MessageStruct
@@ -41,7 +41,6 @@ void MainWindow::drawMessages()
 	vector<MessageStruct> olderMessages = getMessages();
 	for (MessageStruct message : olderMessages)
 	{
-		
 		messages.push_back(message);
 	}
 
