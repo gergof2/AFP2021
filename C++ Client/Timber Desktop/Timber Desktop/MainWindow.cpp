@@ -131,6 +131,15 @@ void MainWindow::drawUsers()
 	for (UserStruct user : users)
 	{
 		userLb->AppendString(user.username);
+		}
+	}
+}
+void MainWindow::constantRefreshUsers()
+{
+	while (true)
+	{
+		drawUsers();
+		std::this_thread::sleep_for(std::chrono::seconds(10));
 	}
 }
 
