@@ -1,10 +1,10 @@
 <div class="messageContainer">
-	<?php foreach ($data as $key => $value): ?>	
+	<?php foreach ($datamessage as $key => $value): ?>	
 	    <div > 
 	    	<?php if ($value[1] == $_SESSION['username']) { ?>
 
-	    		<div class="text" style="text-align:right; margin-left: 100px" >
-	    			<div class="container" >
+	    		<div  class="text" style="text-align:right; margin-left: 100px" >
+	    			<div class="container" data-theme="<?=$_SESSION['data-theme']?>" >
 	    				<div style="font-weight: bold">
 	    					<?php  	print_r($value[1]); echo "<br>"; ?>
 	    				</div>
@@ -18,7 +18,7 @@
 	    	<?php }else { ?>
 
 	    		<div class="text" style="text-align:left; margin-right: 100px" >
-	    			<div class="container darker" >
+	    			<div class="container darker" data-theme="<?=$_SESSION['data-theme']?>" >
 	    				<div style="font-weight: bold">
 	    					<?php  	print_r($value[1]); echo "<br>"; ?>
 	    				</div>
