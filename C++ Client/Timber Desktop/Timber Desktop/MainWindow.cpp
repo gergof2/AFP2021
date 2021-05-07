@@ -110,6 +110,14 @@ void MainWindow::postMessage(wxCommandEvent& evt)
 #pragma region User List Functions
 
 
+void MainWindow::drawUsers()
+{
+	users = getUsers();
+	for (UserStruct user : users)
+	{
+		userLb->AppendString(user.username);
+	}
+}
 
 #pragma endregion
 

@@ -22,6 +22,8 @@ public:
 	void postMessage(wxCommandEvent& evt);
 	void drawMessages();
 	void constantRefreshMessages();
+	void drawUsers();
+	
 	
 
 	wxDECLARE_EVENT_TABLE();
