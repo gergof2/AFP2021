@@ -18,7 +18,7 @@ public:
 	int sessionId;
 
 public:
-	void ButtonClick(wxCommandEvent& evt);
+	void postMessage(wxCommandEvent& evt);
 	void drawMessages();
 	void ConstantRefresh();
 	
