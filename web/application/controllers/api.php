@@ -12,8 +12,6 @@ class Api extends Controller {
     # http://localhost/api GET
     public function index()
     {
-        $data['messages'] = ['asd'];
-
         $this->load_view('home/index', $data);
     }
 
