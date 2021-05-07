@@ -19,6 +19,14 @@ class Controller {
         }
         
     }
+    public function load_viewmessage($view, $data = [], $datamessage = []) {
+        require_once 'application/views/template/header.php';
+        require_once 'application/views/'.$view.'.php';
+        if ( empty($_SESSION['username'])) {
+            require_once 'application/views/template/footer.php';
+        }
+        
+    }
     
     public function redirect($url) {
         ob_start();
