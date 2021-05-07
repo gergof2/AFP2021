@@ -128,7 +128,7 @@ class Api extends Controller {
         $json = json_decode(file_get_contents('php://input'));
         $status = $json->{'statusId'};
         $_SESSION['id'] = $json->{'sessionId'};
-        if(!empty($_SESSION['id']) && !empty($status))
+        if(!empty($_SESSION['id']) && !empty($status) && $status >= 1 && $status <= 4)
         {
             return $this->model->sendClientStatusChange($_SESSION['id'], $status);
         }
