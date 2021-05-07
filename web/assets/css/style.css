@@ -143,12 +143,23 @@ h2{
   cursor: pointer;
   margin: 1rem auto;
 }
+.container[data-theme = 'dark'] {
+  border: 2px solid #dedede;
+  background-color: black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
 .container {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
   padding: 10px;
   margin: 10px 0;
+}
+.darker[data-theme = 'dark'] {
+  border-color: #ccc;
+  background-color: black;
 }
 .darker {
   border-color: #ccc;
