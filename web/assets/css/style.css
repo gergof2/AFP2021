@@ -12,16 +12,31 @@
 	text-align: center;
 }
 
+html[data-theme = 'dark']{
+	height: 100%;
+	background: black;
 }
-.text {
+html{
+	height: 100%;
+	background-color: #D5E1F0
+}
 	color: #6A1B4D;
 }
 *,*:before,*:after{
 	box-sizing: border-box;
 }
+body[data-theme = 'dark']{
+	margin: 0;
+	display: grid;
+	background: none;
+	color: white;
+}
+
 body{
 	margin: 0;
 	display: grid;
+	background: none;
+	color: #6A1B4D;
 }
 main{
 	display: -webkit-flex;
