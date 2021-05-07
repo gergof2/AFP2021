@@ -128,6 +128,7 @@ vector<UserStruct> getUsers()
 void MainWindow::drawUsers()
 {
 	users = getUsers();
+	userLb->Clear();
 	for (UserStruct user : users)
 	{
 		switch (stoi(user.statusid))
@@ -171,6 +172,7 @@ MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Deskt
 	int i = 2;
 	//std::thread t(MainWindow::ConstantRefresh(), i);
 	messageThread = new std::thread(&MainWindow::constantRefreshMessages, this);
+	userThread = new std::thread(&MainWindow::constantRefreshUsers, this);
 }
 
 MainWindow::~MainWindow()
