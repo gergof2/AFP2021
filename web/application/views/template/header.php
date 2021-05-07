@@ -19,7 +19,7 @@
     <!-- URL LINK : <?=URL?>/assets/vendor/fontawesome/css/all.min.css -->
     
 </head>
-<body style="background-color: #D5E1F0";>
+<body id="body" data-theme="<?=$_SESSION['data-theme']?>" >
 <header>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #CAD5E2";>
 
