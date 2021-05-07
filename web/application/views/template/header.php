@@ -52,6 +52,16 @@
               <?php endif ?>
           </ul>
           <form class="d-flex">
+            <p class="mycolor"  style="margin-right: 10px; margin-bottom: 0;">Dark Theme :  </p>
+
+            <!-- probálkozás*************************************************************** -->
+
+           <?php if ($_SESSION['data-theme'] != 'light') {
+              echo '<input type="checkbox" id="switch" name="theme" checked /><label for="switch">Toggle</label>';
+            }else echo '<input type="checkbox" id="switch" name="theme" /><label for="switch">Toggle</label>'; ?>
+
+            <!-- probálkozás*************************************************************** -->           
+            <!--              <input type="checkbox" id="switch" name="theme" <?=empty($_SESSION['data-theme']) ? 'checked': ''?> /><label for="switch">Toggle</label>    --> 
           </form>
         </div>
       </div>
