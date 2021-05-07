@@ -52,8 +52,6 @@
               <?php endif ?>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit" style="color: #6A1B4D">Search</button>
           </form>
         </div>
       </div>
