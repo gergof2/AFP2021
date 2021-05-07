@@ -35,6 +35,7 @@ vector<MessageStruct> getMessages()
 }
 
 vector<MessageStruct> messages;
+vector<int> drawnOutMessages;
 
 void MainWindow::drawMessages()
 {
@@ -52,7 +53,11 @@ void MainWindow::drawMessages()
 		wxString user = message.username;
 		int id = wxAtoi(message.id);
 
-		messageLb->AppendString(user + ": " + text + "   " + date);
+		if (!count(drawnOutMessages.begin(), drawnOutMessages.end(), id))
+		{
+			messageLb->AppendString(user + ": " + text + "   " + date);
+			drawnOutMessages.push_back(id);
+		}
 	}
 }
 
