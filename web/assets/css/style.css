@@ -20,8 +20,15 @@ html{
 	height: 100%;
 	background-color: #D5E1F0
 }
+nav[data-theme = 'dark']{
+	background-color: black;
+	color: white;
+}
+nav{
+	background-color: #CAD5E2;
 	color: #6A1B4D;
 }
+
 *,*:before,*:after{
 	box-sizing: border-box;
 }
