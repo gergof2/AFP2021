@@ -22,6 +22,11 @@ struct MessageStruct
 };
 
 #pragma endregion
+
+#pragma region Message Functions
+
+#pragma region Data Handling
+
 void from_json(const nlohmann::json& j, MessageStruct& msg)
 {
 	j.at("username").get_to(msg.username);
@@ -39,8 +44,9 @@ vector<MessageStruct> getMessages()
 	return parsed;
 }
 
-vector<MessageStruct> messages;
-vector<int> drawnOutMessages;
+#pragma endregion
+
+#pragma region Message List GUI
 
 void MainWindow::drawMessages()
 {
