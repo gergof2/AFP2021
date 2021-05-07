@@ -50,6 +50,7 @@ void MainWindow::drawMessages()
 		wxString text = message.text;
 		wxString date = message.timedate;
 		wxString user = message.username;
+		int id = wxAtoi(message.id);
 
 		messageLb->AppendString(user + ": " + text + "   " + date);
 	}
