@@ -112,7 +112,6 @@ void MainWindow::postMessage(wxCommandEvent& evt)
 void from_json(const nlohmann::json& j, UserStruct& user)
 {
 	j.at("username").get_to(user.username);
-	j.at("id").get_to(user.id);
 	j.at("statusid").get_to(user.statusid);
 }
 
