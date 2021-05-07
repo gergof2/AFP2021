@@ -114,8 +114,9 @@ class Api extends Controller {
     }
 
     public function clientSendMessage(){
-        $message = json_decode(file_get_contents('php://input'));
-        $text = $message->{'text'};
+        $json = json_decode(file_get_contents('php://input'));
+        $text = $json->{'text'};
+         $_SESSION['id'] = $json->{'userid'};
         if(!empty($_SESSION['id']) && !empty($text))
         {
             return $this->model->sendClientMessages($_SESSION['id'], $text);
