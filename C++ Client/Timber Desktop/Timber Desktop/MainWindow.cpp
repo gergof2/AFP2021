@@ -5,10 +5,14 @@
 using namespace nlohmann;
 using namespace std;
 
+#pragma region Static Variables
+
 wxBEGIN_EVENT_TABLE(MainWindow, wxFrame)
-EVT_BUTTON(10001, ButtonClick)
+EVT_BUTTON(10001, postMessage)
 wxEND_EVENT_TABLE();
 
+vector<MessageStruct> messages;
+vector<int> drawnOutMessages;
 struct MessageStruct
 {
 	std::string username;
@@ -17,6 +21,7 @@ struct MessageStruct
 	std::string timedate;
 };
 
+#pragma endregion
 void from_json(const nlohmann::json& j, MessageStruct& msg)
 {
 	j.at("username").get_to(msg.username);
