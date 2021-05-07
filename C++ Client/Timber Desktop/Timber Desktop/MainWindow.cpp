@@ -116,6 +116,14 @@ void from_json(const nlohmann::json& j, UserStruct& user)
 	j.at("statusid").get_to(user.statusid);
 }
 
+vector<UserStruct> getUsers()
+{
+	cpr::Response r = cpr::Get(cpr::Url{ "http://localhost/api/clientGetUsers" });
+	nlohmann::json myJson = nlohmann::json::parse(r.text);
+	vector<UserStruct> parsed = myJson.get<vector<UserStruct>>();
+
+	return parsed;
+}
 
 void MainWindow::drawUsers()
 {
