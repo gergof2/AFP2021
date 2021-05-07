@@ -14,7 +14,7 @@ public:
 	wxButton* sendMsgBtn = nullptr;
 	wxTextCtrl* messageTb = nullptr;
 	wxListBox* messageLb = nullptr;
-	std::thread* t = nullptr;
+	std::thread* messageThread = nullptr;
 	int sessionId;
 
 public:
