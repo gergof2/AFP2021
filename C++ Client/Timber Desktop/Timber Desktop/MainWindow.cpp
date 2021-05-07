@@ -130,10 +130,23 @@ void MainWindow::drawUsers()
 	users = getUsers();
 	for (UserStruct user : users)
 	{
-		userLb->AppendString(user.username);
+		switch (stoi(user.statusid))
+		{
+			case 1:
+				userLb->AppendString(user.username + " Available");
+				break;
+			case 2:
+				userLb->AppendString(user.username + " Busy");
+				break;
+			case 3:
+				userLb->AppendString(user.username + " Away");
+				break;
+			case 4:
+				break;
 		}
 	}
 }
+
 void MainWindow::constantRefreshUsers()
 {
 	while (true)
