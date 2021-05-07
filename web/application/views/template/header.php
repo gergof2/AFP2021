@@ -7,11 +7,9 @@
     <title><?=SITE_NAME?></title>
 
     <!-- Bootstrap, fontawesome, CSS -->   
-    <!-- Old LINK:-->
-    <!-- <link rel="stylesheet" href="<?=URL?>/assets/vendor/bootstrap/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- URL LINK : <?=URL?>/assets/css/style.css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> 
     <link rel="stylesheet" href="/assets/vendor/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- URL LINK : <?=URL?>/assets/vendor/fontawesome/css/all.min.css -->
     
