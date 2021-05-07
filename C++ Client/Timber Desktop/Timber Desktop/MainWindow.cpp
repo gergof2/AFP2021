@@ -80,7 +80,9 @@ void MainWindow::ConstantRefresh()
 	}
 }
 
-void MainWindow::ButtonClick(wxCommandEvent& evt)
+#pragma endregion
+
+void MainWindow::postMessage(wxCommandEvent& evt)
 {
 	string text = messageTb->GetValue().ToStdString();
 	json myJson = json{
@@ -95,6 +97,13 @@ void MainWindow::ButtonClick(wxCommandEvent& evt)
 	evt.Skip();
 }
 
+#pragma endregion
+
+#pragma region User List Functions
+
+
+
+#pragma endregion
 
 
 MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoint(30, 30), wxSize(950, 570))
