@@ -169,4 +169,8 @@ class api_model extends Model {
         echo("Status successful changed!");
     }
 
+    public function ClientGetUsers(){
+        
+    }
+
 }
