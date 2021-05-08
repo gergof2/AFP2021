@@ -46,9 +46,6 @@ class Home extends Controller {
     }
 
     public function message() {
-        $data['data-theme']= $_SESSION['data-theme'];
-        $datamessage = $this->model->getMessages();
 
-        $this->load_viewmessage('home/message', $data , $datamessage);
     }
 }
