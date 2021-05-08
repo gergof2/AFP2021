@@ -12,7 +12,7 @@ class Api extends Controller {
     # http://localhost/api GET
     public function index()
     {
-        $this->load_view('home/index', $data);
+        $this->load_view('home/index');
     }
 
     # http://localhost/api/delete GET
