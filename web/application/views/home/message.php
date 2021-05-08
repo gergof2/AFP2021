@@ -1,5 +1,5 @@
 <div class="messageContainer">
-	<?php foreach ($datamessage as $key => $value): ?>	
+	<?php foreach ($data as $key => $value): ?>	
 	    <div > 
 	    	<?php if ($value[1] == $_SESSION['username']) { ?>
 
