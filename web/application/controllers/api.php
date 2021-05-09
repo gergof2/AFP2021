@@ -42,8 +42,8 @@ class Api extends Controller {
              
         if(!empty($_POST['username']) && !empty($_POST['password'] && !empty($_POST['email'])))
         {
-            $data = $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']));           
-            return $this->load_view('home/login',$data);
+            $data = $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']));
+            $this->redirect('/login');
         }
         
     }
@@ -53,8 +53,7 @@ class Api extends Controller {
          if(!empty($_SESSION['username']))
          {
             $this->model->sendMessages($_SESSION['id'], $_POST['message']);
-            $data = $this->model->getMessages();      
-            return $this->load_view('home/message',$data);
+             $this->redirect('/message');
          }
     }
 

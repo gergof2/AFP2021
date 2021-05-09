@@ -26,12 +26,10 @@ class Home extends Controller {
     }
 
     public function login(){
-        
         $this->load_view('home/login');
     }
 
     public function logout() {
-        $data['data-theme']= $this->data;
         session_destroy();
         $this->redirect('/');
     }

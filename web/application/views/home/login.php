@@ -7,7 +7,7 @@
 			<input class="input" type="text" name="username" required placeholder="Username">
 		</div>
 		<div>
-			<input class="input" type="text" name="password" required placeholder="Password">
+			<input class="input" type="password" name="password" required placeholder="Password">
 		</div>
 
 		<button class="button mycolor" type="submit" name="login_user">Log In</button>

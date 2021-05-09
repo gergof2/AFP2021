@@ -31,7 +31,7 @@ CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
   `text` varchar(255) NOT NULL,
-  `files` varchar(128) NOT NULL,
+  `files` varchar(128),
   `timedate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
