@@ -5,5 +5,14 @@ using namespace std;
 
 class RegisterWindow : public wxFrame
 {
+public: 
+	RegisterWindow();
+	~RegisterWindow();
+
+public:
+	wxButton* registerButton = nullptr;
+	wxTextCtrl* emailTb = nullptr;
+	wxTextCtrl* usernameTb = nullptr;
+	wxTextCtrl* passwordTb = nullptr;
 };
 
