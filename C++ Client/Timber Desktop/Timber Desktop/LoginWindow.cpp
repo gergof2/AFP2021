@@ -12,8 +12,8 @@ wxEND_EVENT_TABLE()
 LoginWindow::LoginWindow() : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoint(30, 30), wxSize(310, 400))
 {
 	this->SetBackgroundColour(wxColor(*wxWHITE));
-	loginBtn = new wxButton(this, 10001, "Log In", wxPoint(93, 320), wxSize(100, 25));
-	registerBtn = new wxButton(this, 10002, "Log In", wxPoint(93, 320), wxSize(100, 25));
+	loginBtn = new wxButton(this, 10001, "Log In", wxPoint(47, 320), wxSize(90, 25));
+	registerBtn = new wxButton(this, 10002, "Register", wxPoint(150, 320), wxSize(90, 25));
 	usernameTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(45, 260), wxSize(200, 25));
 	passwordTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(45, 290), wxSize(200, 25));
 }
