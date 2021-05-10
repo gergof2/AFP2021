@@ -20,9 +20,9 @@ class api_model extends Model {
         );
         $result = $this->executeDML($query, $query_params);
         if (!empty($result)) {
-            echo "Registration failed: ".$result;
+            return "Registration failed: ".$result;
         }else{
-            echo "Successful registration!";
+            return null;
         }  
     }
 
