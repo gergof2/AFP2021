@@ -18,6 +18,7 @@ LoginWindow::LoginWindow() : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoin
 	registerBtn = new wxButton(this, 10002, "Register", wxPoint(150, 320), wxSize(90, 25));
 	usernameTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(45, 260), wxSize(200, 25));
 	passwordTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(45, 290), wxSize(200, 25));
+	registerWindow = new RegisterWindow();
 }
 
 LoginWindow::~LoginWindow()
@@ -27,6 +28,7 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 {
+	if (registerWindow->IsShownOnScreen()) registerWindow->Close();
 	std::string username = (usernameTb->GetValue().ToStdString());
 	std::string password = (passwordTb->GetValue().ToStdString());
 
@@ -58,5 +60,6 @@ void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 
 void LoginWindow::registerButtonClick(wxCommandEvent& evt)
 {
+	registerWindow->Show();
 	evt.Skip();
 }
