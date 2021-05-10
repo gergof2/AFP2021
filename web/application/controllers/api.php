@@ -45,8 +45,10 @@ class Api extends Controller {
             $result = $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']));
             if ($result == null) {
                 $_SESSION['message'] = null;
+                $this->redirect('/login');
             }else
             $_SESSION['registration'] = $result;
+            $this->redirect('/registration');
         }
         
     }
