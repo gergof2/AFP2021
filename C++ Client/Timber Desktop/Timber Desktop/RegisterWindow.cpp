@@ -22,6 +22,17 @@ void RegisterWindow::registerButtonClick(wxCommandEvent& evt)
 
 bool RegisterWindow::registerApiCall(string email, string username, string password)
 {
+	json myJson = json{
+		{"username", username},
+		{"password", password},
+		{"Email", email}
+	};
+
+	cpr::Response r = cpr::Post(cpr::Url{ "http://localhost/api/clientRegister" },
+		cpr::Header{ {"content-type", "application/json"} },
+		cpr::Body{ myJson.dump() });
+
+	return r.text == "Successful registration!";
 }
 
 RegisterWindow::~RegisterWindow()
