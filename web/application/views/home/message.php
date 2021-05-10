@@ -6,7 +6,7 @@
                     <div >
                         <?php if ($value[1] == $_SESSION['username']) { ?>
 
-                            <div class="text" style="text-align:right; margin-left: 20vw" >
+                            <div class="text" style="text-align:right; margin-left: 10vw" >
                                 <div class="container" data-theme="<?=$_SESSION['data-theme']?>" >
                                     <div style="font-weight: bold">
                                         <?php  	print_r($value[1]); echo "<br>"; ?>
@@ -20,7 +20,7 @@
 
                         <?php }else { ?>
 
-                            <div class="text" style="text-align:left; margin-right: 20vw">
+                            <div class="text" style="text-align:left; margin-right: 10vw">
                                 <div class="container darker" data-theme="<?=$_SESSION['data-theme']?>" >
                                     <div style="font-weight: bold">
                                         <?php  	print_r($value[1]); echo "<br>"; ?>

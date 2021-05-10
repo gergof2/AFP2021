@@ -58,7 +58,7 @@ class Api extends Controller {
          if(!empty($_SESSION['username']))
          {
             $this->model->sendMessages($_SESSION['id'], $_POST['message']);
-             $this->redirect('/message');
+            $this->redirect('/message');
          }
     }
 
@@ -87,7 +87,7 @@ class Api extends Controller {
     public function messages(){
         $response = $this->model->getMessages();
         $out = array_values($response);
-        echo json_encode($out);       
+        echo json_encode($out);     
     }
 
 #---------------------------Cleint Functions-------------------------------------
