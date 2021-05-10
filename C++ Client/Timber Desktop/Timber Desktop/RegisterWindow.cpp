@@ -11,3 +11,14 @@ RegisterWindow::RegisterWindow() : wxFrame(nullptr, wxID_ANY, "Create Account", 
 	registerButton = new wxButton(this, 10001, "", wxPoint(45, 200), wxSize(200, 25));
 }
 
+void RegisterWindow::registerButtonClick(wxCommandEvent& evt)
+{
+}
+
+bool RegisterWindow::registerApiCall(string email, string username, string password)
+{
+}
+
+RegisterWindow::~RegisterWindow()
+{
+}
