@@ -18,9 +18,8 @@ LoginWindow::LoginWindow() : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoin
 	passwordLabel = new wxStaticText(this, wxID_ANY, "Password:", wxPoint(47, 291), wxSize(60, 25), 0, wxStaticTextNameStr);
 	loginBtn = new wxButton(this, 10001, "Log In", wxPoint(47, 320), wxSize(90, 25));
 	registerBtn = new wxButton(this, 10002, "Register", wxPoint(150, 320), wxSize(90, 25));
-	usernameTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(45, 260), wxSize(200, 25));
-	passwordTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(45, 290), wxSize(200, 25));
-	registerWindow = new RegisterWindow();
+	usernameTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 260), wxSize(200, 25));
+	passwordTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 290), wxSize(200, 25));
 }
 
 LoginWindow::~LoginWindow()
