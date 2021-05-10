@@ -2,6 +2,7 @@
 
 #include "wx/wx.h"
 #include "MainWindow.h"
+#include "RegisterWindow.h"
 
 class LoginWindow : public wxFrame
 {
@@ -11,6 +12,7 @@ public:
 
 private:
 	MainWindow* mainWindow = nullptr;
+	RegisterWindow* registerWindow = nullptr;
 
 public:
 	wxButton* loginBtn = nullptr;
