@@ -42,8 +42,11 @@ class Api extends Controller {
              
         if(!empty($_POST['username']) && !empty($_POST['password'] && !empty($_POST['email'])))
         {
-            $data = $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']));
-            $this->redirect('/login');
+            $result = $this->model->postRegister($_POST['username'], $_POST['email'], sha1($_POST['password']));
+            if ($result == null) {
+                $_SESSION['message'] = null;
+            }else
+            $_SESSION['registration'] = $result;
         }
         
     }
