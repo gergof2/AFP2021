@@ -9,7 +9,7 @@ EVT_BUTTON(10001, loginButtonClick)
 EVT_BUTTON(10002, registerButtonClick)
 wxEND_EVENT_TABLE()
 
-LoginWindow::LoginWindow() : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoint(30, 30), wxSize(310, 400))
+LoginWindow::LoginWindow() : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoint(30, 30), wxSize(380, 400))
 {
 	this->SetBackgroundColour(wxColor(*wxWHITE));
 	this->SetMinSize(wxSize(310, 400));
