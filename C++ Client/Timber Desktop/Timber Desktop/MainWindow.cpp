@@ -84,6 +84,12 @@ void MainWindow::constantRefreshMessages()
 	while (true)
 	{
 		MainWindow::drawMessages();
+		if (messageLb->GetScrollPos(0) > 14)
+		{
+			messageLb->EnsureVisible(drawnOutMessages.size() - 1);
+		}
+		int a = messageLb->GetScrollPos(0);
+		
 		std::this_thread::sleep_for(std::chrono::seconds(2));
 	}
 }
