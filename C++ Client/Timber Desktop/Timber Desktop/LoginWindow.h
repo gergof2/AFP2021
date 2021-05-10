@@ -15,6 +15,8 @@ private:
 	RegisterWindow* registerWindow = nullptr;
 
 public:
+	wxStaticText* usernameLabel = nullptr;
+	wxStaticText* passwordLabel = nullptr;
 	wxButton* loginBtn = nullptr;
 	wxButton* registerBtn = nullptr;
 	wxTextCtrl* usernameTb = nullptr;
