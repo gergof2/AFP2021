@@ -18,6 +18,19 @@ RegisterWindow::RegisterWindow() : wxFrame(nullptr, wxID_ANY, "Create Account", 
 
 void RegisterWindow::registerButtonClick(wxCommandEvent& evt)
 {
+	string email = emailTb->GetValue().ToStdString();
+	string username = usernameTb->GetValue().ToStdString();
+	string password = passwordTb->GetValue().ToStdString();
+	bool successfulReg = registerApiCall(email, username, password);
+	if (successfulReg)
+	{
+		wxMessageBox("Account creation successful! Feel free to log in!");
+		Close();
+	}
+	else 
+	{
+		wxMessageBox("Something went wrong...");
+	}
 }
 
 bool RegisterWindow::registerApiCall(string email, string username, string password)
