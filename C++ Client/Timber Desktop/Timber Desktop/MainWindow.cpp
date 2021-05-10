@@ -97,11 +97,9 @@ void MainWindow::postMessage(wxCommandEvent& evt)
 		{"userid", sessionId},
 		{"text", text}
 	};
-	wxMessageBox(myJson.dump());
 	cpr::Response r = cpr::Post(cpr::Url{ "localhost/api/clientSendMessage" },
 		cpr::Body{ myJson.dump() },
 		cpr::Header{ {"content-type", "application/json"} });
-	wxMessageBox(r.text);
 	evt.Skip();
 }
 
