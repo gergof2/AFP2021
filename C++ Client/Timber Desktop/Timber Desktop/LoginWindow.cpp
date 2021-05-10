@@ -29,7 +29,7 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 {
-	if (registerWindow->IsShownOnScreen()) registerWindow->Close();
+	if (registerWindow != nullptr) registerWindow->Close();
 	std::string username = (usernameTb->GetValue().ToStdString());
 	std::string password = (passwordTb->GetValue().ToStdString());
 
@@ -61,6 +61,7 @@ void LoginWindow::loginButtonClick(wxCommandEvent& evt)
 
 void LoginWindow::registerButtonClick(wxCommandEvent& evt)
 {
+	registerWindow = new RegisterWindow();
 	registerWindow->Show();
 	evt.Skip();
 }
