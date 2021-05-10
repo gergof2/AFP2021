@@ -2,6 +2,11 @@
 #include "cpr/cpr.h"
 #include "nlohmann/json.hpp"
 using namespace nlohmann;
+
+wxBEGIN_EVENT_TABLE(RegisterWindow, wxFrame)
+EVT_BUTTON(10001, registerButtonClick)
+wxEND_EVENT_TABLE()
+
 RegisterWindow::RegisterWindow() : wxFrame(nullptr, wxID_ANY, "Create Account", wxPoint(10, 10), wxSize(400, 310))
 {
 	this->SetBackgroundColour(wxColor(*wxWHITE));
