@@ -17,6 +17,10 @@
 		<button class="button mycolor"  type="submit" name="reg_user">Submit</button>
 
 		<p>Already a user? <a href="/login"><b>Log in</b></a></p>
+		<?php
+        if (!empty($_SESSION['registration'])) {
+            echo $_SESSION['registration'];
+        } ?>
 		
 	</form>
 </div>
