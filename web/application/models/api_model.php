@@ -66,6 +66,11 @@ class api_model extends Model {
             ':messageId' => $messageId
         );
         $result = $this->executeDML($query, $query_params);
+        if (!empty($result)) {
+            return "Delete failed: ".$result;
+        }else{
+            return null;
+        }  
     }
 
 #--------------------------Universal---------------------------------------------
