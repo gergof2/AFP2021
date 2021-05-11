@@ -21,9 +21,11 @@ class Api extends Controller {
         $result = $this->model->deleteMessage($_SESSION['id'], $_POST['messageid']);
         if($result == null){
             $_SESSION['message'] = "Delete successful!";
+            $this->redirect('/message');
         }
         else{
             $_SESSION['message'] = "Delete failed!";
+            $this->redirect('/message');
         }
     }
 
