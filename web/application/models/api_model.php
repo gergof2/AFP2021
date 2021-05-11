@@ -60,22 +60,6 @@ class api_model extends Model {
 #--------------------------Ideas-----------------------------------------------      
 
     public function deleteMessage($id){
-        $query = "SELECT `id` FROM messages WHERE `id` = '" . $id . "'";
-        $res = $this->getList($query);
-        if($res == null)
-        {
-            echo "";
-        }
-        else{
-            $query2 = "DELETE FROM `messages` WHERE `id` = '" . $id . "'";
-            $result = $this->executeDML($query2);
-            if(!$result){
-                echo "!";
-            }
-            else{
-                echo "!";
-            }
-        }
 
     }
 
