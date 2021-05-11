@@ -18,6 +18,7 @@ class Api extends Controller {
     # http://localhost/api/delete GET
     public function deletemessage()
     {
+        $result = $this->model->deleteMessage($_SESSION['id'], $_POST['messageid']);
     }
 
     public function login()
