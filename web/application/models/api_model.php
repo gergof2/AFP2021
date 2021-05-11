@@ -60,6 +60,11 @@ class api_model extends Model {
 #--------------------------Ideas-----------------------------------------------      
 
     public function deleteMessage($id, $messageId){
+        $query = "DELETE FROM messages WHERE userid = :id AND id = :messageId";
+        $query_params = array(
+            ':id' => $_SESSION['id'],
+            ':messageId' => $messageId
+        );
     }
 
 #--------------------------Universal---------------------------------------------
