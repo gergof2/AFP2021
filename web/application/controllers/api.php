@@ -16,10 +16,17 @@ class Api extends Controller {
     }
 
     # http://localhost/api/delete GET
-    public function delete()
+    public function deletemessage()
     {
-        $id = $_GET['id'];
-        $delete = $this->model->deleteMessage($id);
+        $result = $this->model->deleteMessage($_SESSION['id'], $_POST['messageid']);
+        if($result == null){
+            $_SESSION['message'] = "Delete successful!";
+            $this->redirect('/message');
+        }
+        else{
+            $_SESSION['message'] = "Delete failed!";
+            $this->redirect('/message');
+        }
     }
 
     public function login()

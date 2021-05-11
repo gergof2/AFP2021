@@ -59,24 +59,18 @@ class api_model extends Model {
 
 #--------------------------Ideas-----------------------------------------------      
 
-    public function deleteMessage($id){
-        $query = "SELECT `id` FROM messages WHERE `id` = '" . $id . "'";
-        $res = $this->getList($query);
-        if($res == null)
-        {
-            echo "";
-        }
-        else{
-            $query2 = "DELETE FROM `messages` WHERE `id` = '" . $id . "'";
-            $result = $this->executeDML($query2);
-            if(!$result){
-                echo "!";
-            }
-            else{
-                echo "!";
-            }
-        }
-
+    public function deleteMessage($id, $messageId){
+        $query = "DELETE FROM messages WHERE userid = :id AND id = :messageId";
+        $query_params = array(
+            ':id' => $_SESSION['id'],
+            ':messageId' => $messageId
+        );
+        $result = $this->executeDML($query, $query_params);
+        if (!empty($result)) {
+            return "Delete failed: ".$result;
+        }else{
+            return null;
+        }  
     }
 
 #--------------------------Universal---------------------------------------------
