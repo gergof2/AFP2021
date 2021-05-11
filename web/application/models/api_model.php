@@ -65,6 +65,7 @@ class api_model extends Model {
             ':id' => $_SESSION['id'],
             ':messageId' => $messageId
         );
+        $result = $this->executeDML($query, $query_params);
     }
 
 #--------------------------Universal---------------------------------------------
