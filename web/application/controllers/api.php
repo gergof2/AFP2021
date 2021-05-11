@@ -19,6 +19,12 @@ class Api extends Controller {
     public function deletemessage()
     {
         $result = $this->model->deleteMessage($_SESSION['id'], $_POST['messageid']);
+        if($result == null){
+            $_SESSION['message'] = "Delete successful!";
+        }
+        else{
+            $_SESSION['message'] = "Delete failed!";
+        }
     }
 
     public function login()
