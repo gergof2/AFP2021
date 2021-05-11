@@ -59,8 +59,7 @@ class api_model extends Model {
 
 #--------------------------Ideas-----------------------------------------------      
 
-    public function deleteMessage($id){
-
+    public function deleteMessage($id, $messageId){
     }
 
 #--------------------------Universal---------------------------------------------

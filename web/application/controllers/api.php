@@ -16,9 +16,8 @@ class Api extends Controller {
     }
 
     # http://localhost/api/delete GET
-    public function delete()
+    public function deletemessage()
     {
-        
     }
 
     public function login()
