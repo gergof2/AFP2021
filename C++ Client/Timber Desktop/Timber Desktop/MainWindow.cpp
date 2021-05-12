@@ -12,6 +12,7 @@ EVT_BUTTON(10001, postMessage)
 //EVT_TEXT_ENTER(10011, MainWindow::postMessage)
 wxEND_EVENT_TABLE();
 
+
 struct MessageStruct
 {
 	std::string username;
@@ -112,6 +113,7 @@ void MainWindow::postMessage(wxCommandEvent& evt)
 	evt.Skip();
 }
 
+
 #pragma endregion
 
 #pragma region User List Functions
@@ -170,6 +172,8 @@ MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Deskt
 {
 	this->SetBackgroundColour(wxColor(*wxWHITE));
 	this->sessionId = sessionId;
+	this->SetMinSize(wxSize(950, 570));
+	this->SetMaxSize(wxSize(950, 570));
 	sendMsgBtn = new wxButton(this, 10001, "Send Message", wxPoint(10, 490), wxSize(100, 25));
 	messageTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 430), wxSize(710, 50));
 	messageLb = new wxListBox(this, wxID_ANY, wxPoint(10, 10), wxSize(710, 410));
