@@ -52,7 +52,7 @@ class api_model extends Model {
     }
 
     public function getUsers(){
-        $query = "SELECT username, statusid from user";
+        $query = "SELECT username, statusid from user ORDER BY statusid";
         $result = $this->getList($query);
         return $result;
     }
