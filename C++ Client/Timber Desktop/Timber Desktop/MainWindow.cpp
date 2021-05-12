@@ -9,6 +9,7 @@ using namespace std;
 
 wxBEGIN_EVENT_TABLE(MainWindow, wxFrame)
 EVT_BUTTON(10001, postMessage)
+//EVT_TEXT_ENTER(10011, MainWindow::postMessage)
 wxEND_EVENT_TABLE();
 
 struct MessageStruct
