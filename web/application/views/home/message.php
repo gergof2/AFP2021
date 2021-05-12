@@ -46,7 +46,8 @@
 <script>
     messageContainer = document.getElementsByClassName('messageContainer')[0];
     messageContainer.scrollBy(0, messageContainer.scrollHeight);
-</script>    //location.reload( 'application/views/home/messagebox.php' );
+
+    //location.reload( 'application/views/home/messagebox.php' );
 
     // setTimeout(function(){ $( "#auto" ).load( 'application/views/home/messagebox.php' ); }, 1000);
     
