@@ -47,14 +47,32 @@
             </div>
         </div>
         <div class="col-2">
-            <?php ?>
-            Én
-            te
+            <?php foreach ($users as $key => $value): ?>
+            	   <?php  print_r($value[0]); ?>
+            	   <?php switch ($value[1]) {
+            	   	case '1':
+            	   		echo "onlie <br>";
+            	   		break;
+            	   	case '2':
+            	   		echo "busy <br>";
+            	   		break;
+            	   	case '3':
+            	   		echo "inactive <br>";
+            	   		break;
+            	   	case '4':
+            	   		echo "offline <br>";
+            	   		break;
+
+            	   	default:
+            	   		# code...
+            	   		break;
+            	   } ?>
+            	   <!-- <?php  print_r($value[1]); echo "<br>"; ?> -->
+            	 <!-- <?php var_dump($users) ?> -->
+           	<?php endforeach ?>
         </div>
     </div>
 </div>
-
-
 
 
 <script>
