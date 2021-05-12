@@ -45,7 +45,7 @@ class Home extends Controller {
 
     public function message() {
         $data = $this->model->getMessages();
-
-        $this->load_viewmessage('home/message', $data);
+        $users =$this->model->getUsers();
+        $this->load_viewmessage('home/message', $data, $users);
     }
 }
