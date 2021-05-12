@@ -10,7 +10,7 @@
                         <input class="widinput" type="text" name="message" required placeholder="Send message your friend :D">
                     </div>
 
-                    <button class="button mycolor" type="submit" >Send message</button>
+                    <button class="button" type="submit" >Send message</button>
                 </form>
             </div>
         </div>
