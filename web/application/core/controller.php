@@ -19,7 +19,7 @@ class Controller {
         }
         
     }
-    public function load_viewmessage($view, $data = [], $datamessage = []) {
+    public function load_viewmessage($view, $data = [], $users = []) {
         require_once 'application/views/template/header.php';
         require_once 'application/views/'.$view.'.php';
         if ( empty($_SESSION['username'])) {
