@@ -7,12 +7,12 @@ wxBEGIN_EVENT_TABLE(RegisterWindow, wxFrame)
 EVT_BUTTON(10001, registerButtonClick)
 wxEND_EVENT_TABLE()
 
-RegisterWindow::RegisterWindow() : wxFrame(nullptr, wxID_ANY, "Create Account", wxPoint(10, 10), wxSize(390, 210))
+RegisterWindow::RegisterWindow() : wxFrame(nullptr, wxID_ANY, "Create Account", wxPoint(10, 10), wxSize(390, 190))
 {
 	this->SetBackgroundColour(wxColor(*wxWHITE));
 
-	this->SetMinSize(wxSize(390, 210));
-	this->SetMaxSize(wxSize(390, 210));
+	this->SetMinSize(wxSize(390, 190));
+	this->SetMaxSize(wxSize(390, 190));
 
 	emailLabel = new wxStaticText(this, wxID_ANY, "Email:", wxPoint(45, 25), wxSize(60, 25), 0, wxStaticTextNameStr);
 	usernameLabel = new wxStaticText(this, wxID_ANY, "Username:", wxPoint(45, 55), wxSize(60, 25), 0, wxStaticTextNameStr);
