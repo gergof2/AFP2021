@@ -20,7 +20,7 @@ RegisterWindow::RegisterWindow() : wxFrame(nullptr, wxID_ANY, "Create Account", 
 
 	emailTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 20), wxSize(200, 25));
 	usernameTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 50), wxSize(200, 25));
-	passwordTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 80), wxSize(200, 25));
+	passwordTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 80), wxSize(200, 25), wxTE_PASSWORD);
 
 	registerButton = new wxButton(this, 10001, "Create Account", wxPoint(80, 115), wxSize(200, 25));
 }

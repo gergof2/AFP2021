@@ -22,7 +22,7 @@ LoginWindow::LoginWindow() : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoin
 	loginBtn = new wxButton(this, 10001, "Log In", wxPoint(195, 175), wxSize(90, 25));
 	registerBtn = new wxButton(this, 10002, "Register", wxPoint(80, 175), wxSize(90, 25));
 	usernameTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 110), wxSize(200, 25));
-	passwordTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 140), wxSize(200, 25));
+	passwordTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 140), wxSize(200, 25), wxTE_PASSWORD);
 }
 
 LoginWindow::~LoginWindow()
