@@ -10,6 +10,9 @@ public:
 	~RegisterWindow();
 
 public:
+	wxStaticText* emailLabel = nullptr;
+	wxStaticText* usernameLabel = nullptr;
+	wxStaticText* passwordLabel = nullptr;
 	wxButton* registerButton = nullptr;
 	wxTextCtrl* emailTb = nullptr;
 	wxTextCtrl* usernameTb = nullptr;
