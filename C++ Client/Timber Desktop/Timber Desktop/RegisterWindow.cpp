@@ -11,8 +11,8 @@ RegisterWindow::RegisterWindow() : wxFrame(nullptr, wxID_ANY, "Create Account", 
 {
 	this->SetBackgroundColour(wxColor(*wxWHITE));
 
-	this->SetMinSize(wxSize(950, 570));
-	this->SetMaxSize(wxSize(950, 570));
+	this->SetMinSize(wxSize(390, 210));
+	this->SetMaxSize(wxSize(390, 210));
 
 	emailLabel = new wxStaticText(this, wxID_ANY, "Email:", wxPoint(45, 25), wxSize(60, 25), 0, wxStaticTextNameStr);
 	usernameLabel = new wxStaticText(this, wxID_ANY, "Username:", wxPoint(45, 55), wxSize(60, 25), 0, wxStaticTextNameStr);
