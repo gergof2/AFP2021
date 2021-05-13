@@ -1,7 +1,7 @@
 # Kliens Tesztjegyzőkönyv
 ## 2021. 05. 12.
 
-##Feketedobozos tesztelést használtunk a következő eredményekkel:
+## Feketedobozos tesztelést használtunk a következő eredményekkel:
 ### Login Ablak Tesztelés:
 -Login ablakon belüli regisztrációs gomb. Megnyomom.  
 1. Várt müködés: Megjelenik a regisztrációs ablak.  
