@@ -22,11 +22,13 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="LoginWindow.h" />
     <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="RegisterWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="LoginWindow.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="RegisterWindow.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

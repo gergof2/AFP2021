@@ -9,7 +9,9 @@ using namespace std;
 
 wxBEGIN_EVENT_TABLE(MainWindow, wxFrame)
 EVT_BUTTON(10001, postMessage)
+//EVT_TEXT_ENTER(10011, MainWindow::postMessage)
 wxEND_EVENT_TABLE();
+
 
 struct MessageStruct
 {
@@ -84,6 +86,12 @@ void MainWindow::constantRefreshMessages()
 	while (true)
 	{
 		MainWindow::drawMessages();
+		if (messageLb->GetScrollPos(0) > 14)
+		{
+			messageLb->EnsureVisible(drawnOutMessages.size() - 1);
+		}
+		int a = messageLb->GetScrollPos(0);
+		
 		std::this_thread::sleep_for(std::chrono::seconds(2));
 	}
 }
@@ -97,13 +105,14 @@ void MainWindow::postMessage(wxCommandEvent& evt)
 		{"userid", sessionId},
 		{"text", text}
 	};
-	wxMessageBox(myJson.dump());
 	cpr::Response r = cpr::Post(cpr::Url{ "localhost/api/clientSendMessage" },
 		cpr::Body{ myJson.dump() },
 		cpr::Header{ {"content-type", "application/json"} });
-	wxMessageBox(r.text);
+
+	messageTb->SetValue("");
 	evt.Skip();
 }
+
 
 #pragma endregion
 
@@ -163,13 +172,14 @@ MainWindow::MainWindow(int sessionId) : wxFrame(nullptr, wxID_ANY, "Timber Deskt
 {
 	this->SetBackgroundColour(wxColor(*wxWHITE));
 	this->sessionId = sessionId;
+	this->SetMinSize(wxSize(950, 570));
+	this->SetMaxSize(wxSize(950, 570));
 	sendMsgBtn = new wxButton(this, 10001, "Send Message", wxPoint(10, 490), wxSize(100, 25));
 	messageTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 430), wxSize(710, 50));
 	messageLb = new wxListBox(this, wxID_ANY, wxPoint(10, 10), wxSize(710, 410));
 	userLb = new wxListBox(this, wxID_ANY, wxPoint(730, 10), wxSize(195, 410));
-	//auto future = std::async(launch::async, std::bind(&MainWindow::ConstantRefresh, this));
-	int i = 2;
-	//std::thread t(MainWindow::ConstantRefresh(), i);
+	drawMessages();
+	messageLb->EnsureVisible(drawnOutMessages.size() - 1);
 	messageThread = new std::thread(&MainWindow::constantRefreshMessages, this);
 	userThread = new std::thread(&MainWindow::constantRefreshUsers, this);
 }
