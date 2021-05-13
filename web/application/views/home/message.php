@@ -1,8 +1,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-10">
-            <div class="messageContainer" id='auto'>
-            	  <?php require_once 'application/views/home/messagebox.php' ?>  
+            <div class="messageContainer" >
+            	<div id='auto'>
+            		 <?php require_once 'application/views/home/messagebox.php' ?>
+            	</div>
+            	   
             </div>
             <div>
                 <form action="api/sendmessages" method="post">
@@ -14,10 +17,16 @@
                 </form>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-1">
             <?php foreach ($users as $key => $value): ?>
-            	   <?php  print_r($value[0]); ?>
-            	   <?php switch ($value[1]) {
+            	   <?php  print_r($value[0].'<br>'); ?>
+            	   <!-- <?php  print_r($value[1]); echo "<br>"; ?> -->
+            	 <!-- <?php var_dump($users) ?> -->
+           	<?php endforeach ?>
+        </div>
+        <div class="col-1">
+        	<?php foreach ($users as $key => $value): ?>
+        	        <?php switch ($value[1]) {
             	   	case '1':
             	   		echo "onlie <br>";
             	   		break;
