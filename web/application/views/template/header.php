@@ -17,7 +17,7 @@
     <!-- URL LINK : <?=URL?>/assets/css/style.css -->
     <link rel="stylesheet" href="/assets/vendor/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- URL LINK : <?=URL?>/assets/vendor/fontawesome/css/all.min.css -->
-    <!--  <script type="text/javascript" src="assets/js/jquery-3.6.0.min"></script> -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     
 </head>
 <body id="body" data-theme="<?=$_SESSION['data-theme']?>" >

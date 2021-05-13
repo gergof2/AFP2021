@@ -44,9 +44,7 @@
             	   		# code...
             	   		break;
             	   } ?>
-            	   <!-- <?php  print_r($value[1]); echo "<br>"; ?> -->
-            	 <!-- <?php var_dump($users) ?> -->
-           	<?php endforeach ?>
+            <?php endforeach ?>
         </div>
     </div>
 </div>
@@ -60,7 +58,7 @@
 
     // setTimeout(function(){ $( "#auto" ).load( 'application/views/home/messagebox.php' ); }, 1000);
     
-     setTimeout(function(){ location.reload(true) }, 15000);
+    // setTimeout(function(){ location.reload(true) }, 15000);
      
     //messageBox = document.getElementById('auto');
     //window.location.replace('message');
@@ -68,9 +66,10 @@
     //location.reload(true);   
 </script>
 
-<!-- <script type="text/javascript">
-	$(document).ready(function() {
-		alert("ok");
-	})
+ <script type="text/javascript">
+		//setTimeout(function(){ $('#auto').load("messagebox"); }, 1000);
+		// $.get('application/controllers/home.php/message', function() {
+		// 	 $('#auto').html();
 
-</script>  -->
+
+</script>  
