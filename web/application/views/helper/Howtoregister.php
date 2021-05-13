@@ -1,4 +1,4 @@
-<div class="center text" style="height: 27em">
+<div class="center text" style="height: 30em">
 
 <p style="margin-top: 5em">
 	1. First, create your own personal account <br>
