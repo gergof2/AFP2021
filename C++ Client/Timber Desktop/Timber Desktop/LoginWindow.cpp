@@ -20,6 +20,9 @@ LoginWindow::LoginWindow() : wxFrame(nullptr, wxID_ANY, "Timber Desktop", wxPoin
 	registerBtn = new wxButton(this, 10002, "Register", wxPoint(150, 320), wxSize(90, 25));
 	usernameTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 260), wxSize(200, 25));
 	passwordTb = new wxTextCtrl(this, wxID_ANY, "", wxPoint(120, 290), wxSize(200, 25));
+	TitleLabel = new wxStaticText(this, wxID_ANY, "Timber Desktop", wxPoint(50, 35), wxSize(60, 25), 0, wxStaticTextNameStr);
+	TitleLabel->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false));
+	//TitleLabel->SetBackgroundColour(wxColor(156, 77, 127));
 }
 
 LoginWindow::~LoginWindow()
