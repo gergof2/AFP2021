@@ -11,7 +11,7 @@
 		</div>
 
 		<div>
-			<input class="input" type="text" name="password" required placeholder="Password">
+			<input class="input" type="password" name="password" required placeholder="Password">
 		</div>
 
 		<button class="button mycolor"  type="submit" name="reg_user">Submit</button>
